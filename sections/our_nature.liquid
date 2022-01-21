@@ -1,0 +1,222 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-our-nature.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="{% unless section.settings.full_width %}page-width{% endunless %}">
+  <div class="rich-text color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width{% endif %}">
+    <div class="page-width-desktop">
+    
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'heading' -%}
+          <div class="rich-text__blocks">
+            <h2 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
+          </div>
+
+          {%- when 'text' -%}
+          <div class="rich-text__blocks">
+            <div class="rich-text__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          </div>
+            {%- when 'second_heading' -%}
+            <h4 class="show-on-desktop">{{ block.settings.second_title }}</h4>
+
+            
+            <div class="grid grid--1-col product-grid grid--2-col-tablet grid--4-col-desktop negative-margin--small">
+              {%- when 'page' -%}
+              <div class="grid__item source__item">
+                <div class="source-wrapper">
+                  <div class="icon_pic">
+                    <img src="{{ block.settings.page_image | img_url: '100x80', crop: 'center', scale: 2 }}" alt="{{ article.image.alt | escape }}">
+                  </div>
+                  <div class="source_title">
+                    <h5>
+                      {{ block.settings.page_title }}
+                    </h5>
+                  </div>
+                  <div class="source_text">
+                    <p>
+                      {{ block.settings.page_text }}
+                    </p>
+                  </div>
+                  <div class="source_button">
+                    <a href="{{ block.settings.page_link_button }}" class="button button--secondary">Learn more</a>
+                  </div>
+                </div>
+              </div>
+              
+
+
+            
+        {%- endcase -%}
+      {%- endfor -%}
+
+
+   
+    </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Our Nature",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "background-3",
+          "label": "t:sections.rich-text.settings.color_scheme.options__5.label"
+        },
+        {
+          "value": "background-4",
+          "label": "t:sections.rich-text.settings.color_scheme.options__6.label"
+        },
+        {
+          "value": "background-5",
+          "label": "Milk white background"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.rich-text.settings.color_scheme.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "second_heading",
+      "name": "Second title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "second_title",
+          "default": "We care about",
+          "label": "Second title"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Pages cards",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "page_image",
+          "label": "Page Image"
+        },
+        {
+          "type": "text",
+          "id": "page_title",
+          "label": "Page Title"
+        },
+        {
+          "type": "text",
+          "id": "page_text",
+          "label": "Page Text"
+        },
+        {
+          "type": "url",
+          "id": "page_link_button",
+          "label": "Page Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Nature",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "second_heading"
+        },
+        {
+          "type": "page"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

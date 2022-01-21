@@ -1,0 +1,389 @@
+{
+  "sections": {
+    "1637918459b18ce260": {
+      "type": "apps",
+      "blocks": {
+        "c663bc24-76f1-4ed8-893c-053cf388673e": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+            "stars_fill_color": "#ffc900",
+            "star_size": 18,
+            "text_align": "flex-start",
+            "product": "{{product}}",
+            "stars_text_empty": "No reviews"
+          }
+        }
+      },
+      "block_order": [
+        "c663bc24-76f1-4ed8-893c-053cf388673e"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "5b71bb5e-0427-4743-a18c-11d451e5ea77": {
+          "type": "popup",
+          "settings": {
+            "text": "Find a Retailer",
+            "page": "store-locator"
+          }
+        },
+        "a9fde686-e29a-4aaa-80f0-ec7aa7ce20de": {
+          "type": "benefits",
+          "settings": {
+            "benefit_tag": "icon-no-gmos",
+            "benefit_icon": "shopify:\/\/shop_images\/Group_4.png",
+            "benefit_title": "",
+            "benefit_text": "",
+            "benefit_button_link": ""
+          }
+        },
+        "d692af0e-f0c1-41a6-a027-3a1df82fc506": {
+          "type": "benefits",
+          "settings": {
+            "benefit_tag": "icon-no-gluten",
+            "benefit_icon": "shopify:\/\/shop_images\/Group_3.png",
+            "benefit_title": "Test",
+            "benefit_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+            "benefit_button_link": "shopify:\/\/blogs\/news",
+            "benefit_picture": "shopify:\/\/shop_images\/Bitmap.jpg"
+          }
+        },
+        "78817641-2692-4802-bcdd-342d163cf782": {
+          "type": "benefits",
+          "settings": {
+            "benefit_tag": "icon-vegan",
+            "benefit_icon": "shopify:\/\/shop_images\/Group_5.png",
+            "benefit_title": "Lorem",
+            "benefit_text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
+            "benefit_button_link": "shopify:\/\/pages\/careers",
+            "benefit_picture": "shopify:\/\/shop_images\/oldmans_runners.png"
+          }
+        },
+        "9ff1d9e6-13a4-4841-a75e-dbc573636b61": {
+          "type": "benefits",
+          "settings": {
+            "benefit_tag": "icon-no-soy",
+            "benefit_icon": "shopify:\/\/shop_images\/Group_3_Copy.png",
+            "benefit_title": "",
+            "benefit_text": "",
+            "benefit_button_link": ""
+          }
+        },
+        "dd17abc1-08cd-4262-85ee-826986a44a05": {
+          "type": "benefits",
+          "settings": {
+            "benefit_tag": "icon-skin-hair-and-nails",
+            "benefit_icon": "shopify:\/\/shop_images\/Group_3_Copy_3.png",
+            "benefit_title": "",
+            "benefit_text": "",
+            "benefit_button_link": ""
+          }
+        },
+        "970a9adb-c3e4-455d-9ceb-4ed0b70f1475": {
+          "type": "benefits",
+          "settings": {
+            "benefit_tag": "icon-heart-health",
+            "benefit_icon": "shopify:\/\/shop_images\/heart.png",
+            "benefit_title": "Cardiovascular Health",
+            "benefit_text": "Cardiovascular health is important because… Aliquam ultrices mi quis quam eleifend euismod. Vestibulum pharetra mi ut efficitur mi quis pellentesque. Aliquam ultrices mi quis quam eleifend.",
+            "benefit_button_link": "shopify:\/\/pages\/careers",
+            "benefit_picture": "shopify:\/\/shop_images\/Bitmap.jpg"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "subtitle",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "5b71bb5e-0427-4743-a18c-11d451e5ea77",
+        "a9fde686-e29a-4aaa-80f0-ec7aa7ce20de",
+        "d692af0e-f0c1-41a6-a027-3a1df82fc506",
+        "78817641-2692-4802-bcdd-342d163cf782",
+        "9ff1d9e6-13a4-4841-a75e-dbc573636b61",
+        "dd17abc1-08cd-4262-85ee-826986a44a05",
+        "970a9adb-c3e4-455d-9ceb-4ed0b70f1475",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "16379204090e687407": {
+      "type": "apps",
+      "blocks": {
+        "d6f4167f-6e8c-41ce-8007-92b298d0b8cd": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "d6f4167f-6e8c-41ce-8007-92b298d0b8cd"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1637695966fead1288": {
+      "type": "key-ingredient",
+      "blocks": {
+        "16376959665e1f7525-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading_2": "Key Ingredient",
+            "heading": "Quercetin"
+          }
+        },
+        "16376959665e1f7525-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Quercetin is a natural plant pigment classified as a bioflavonoid. This key dietary antioxidant helps mitigate oxidative stress by scavenging and neutralizing free radicals in the body and improves the antioxidant activity of other dietary compounds such as vitamin C (Askari et al., 2021).<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16376959665e1f7525-0",
+        "16376959665e1f7525-1"
+      ],
+      "settings": {
+        "background": "#faf8f7",
+        "image": "shopify:\/\/shop_images\/AdobeStock_247127740.png",
+        "height": "adapt",
+        "button_label": "Learn More",
+        "button_link": "#",
+        "picture_title": "What is Quercetin?",
+        "picture_text": "Find out why this little known substance is the latest addition to your daily health regime."
+      }
+    },
+    "163769557016a3e813": {
+      "type": "accordeon",
+      "blocks": {
+        "1637695570e34fdcd2-1": {
+          "type": "heading",
+          "settings": {
+            "accordeon_title": "What Else Should I Know?"
+          }
+        },
+        "1637695570e34fdcd2-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "f3ea21ef-7f57-49c1-87de-2135076c1175": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "4d170ce1-1103-43b6-a4bd-a7c7e9de86a2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "b01680ce-5cb0-4e40-b24a-9525cca92b92": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "593ab887-9eea-42db-b348-55521f136c7b": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "1637695570e34fdcd2-1",
+        "1637695570e34fdcd2-0",
+        "f3ea21ef-7f57-49c1-87de-2135076c1175",
+        "4d170ce1-1103-43b6-a4bd-a7c7e9de86a2",
+        "b01680ce-5cb0-4e40-b24a-9525cca92b92",
+        "593ab887-9eea-42db-b348-55521f136c7b"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "section-padding-top": 0,
+        "section-padding-bottom": 54,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom-mobile": 36
+      }
+    },
+    "1637918823f99f57ee": {
+      "type": "title-text-button-icon",
+      "blocks": {
+        "1637918822f48c63fe-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/map-location-dot.png"
+          }
+        },
+        "1637918822f48c63fe-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Where can I find this?",
+            "heading_size": "h1"
+          }
+        },
+        "1637918822f48c63fe-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec mi est. Suspendisse potenti. Sed lobortis augue sit amet velit luctus, tempus maximus diam auctor.<\/p>"
+          }
+        },
+        "1637918822f48c63fe-3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Find a Retailer",
+            "button_link": "shopify:\/\/pages\/retailers",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "1637918822f48c63fe-0",
+        "1637918822f48c63fe-1",
+        "1637918822f48c63fe-2",
+        "1637918822f48c63fe-3"
+      ],
+      "settings": {
+        "color_scheme": "accent-1",
+        "full_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": false,
+        "show_vendor": false,
+        "show_rating": true
+      }
+    },
+    "16386402912fa03db2": {
+      "type": "social",
+      "blocks": {
+        "1638640291f8074946-0": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/facebook.png",
+            "social_link": "#"
+          }
+        },
+        "67bc4ff1-4302-4da0-a243-56d576a4b113": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/ttwitter.png",
+            "social_link": "#"
+          }
+        },
+        "41f80ba9-dc28-41e7-80b4-cfd0eb736684": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/pinterest.png",
+            "social_link": "#"
+          }
+        },
+        "4f586fba-7fd2-4a43-b5b2-1bbf9b3bbcf5": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/linkedin.png",
+            "social_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "1638640291f8074946-0",
+        "67bc4ff1-4302-4da0-a243-56d576a4b113",
+        "41f80ba9-dc28-41e7-80b4-cfd0eb736684",
+        "4f586fba-7fd2-4a43-b5b2-1bbf9b3bbcf5"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "section-padding-top": 60,
+        "section-padding-bottom": 60,
+        "section-padding-top-mobile": 60,
+        "section-padding-bottom-mobile": 60
+      }
+    }
+  },
+  "order": [
+    "1637918459b18ce260",
+    "main",
+    "16379204090e687407",
+    "1637695966fead1288",
+    "163769557016a3e813",
+    "1637918823f99f57ee",
+    "product-recommendations",
+    "16386402912fa03db2"
+  ]
+}

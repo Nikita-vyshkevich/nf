@@ -1,0 +1,228 @@
+<!-- {{ 'base.css' | asset_url | stylesheet_tag }} -->
+{{ 'component-page-section.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-featured-article.css' | asset_url | stylesheet_tag }}
+
+<div class="f-article__wrapper" style="background-color: {{ section.settings.background }}">
+  <div class="page-width">
+    <div class="page-section__row desk-row__mobile-col">
+      <div class="col-1_2 product__info-wrapper grid__item">
+        {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+        {%- when 'heading' -%}
+        <h2 class="{{ block.settings.heading_size }} title__partner_block align-left h1" {{ block.shopify_attributes }}>
+          {{ block.settings.heading | escape }}
+        </h2>
+
+        {%- when 'text' -%}
+        <span class="rich-text-lined__text__{{ block.id }} rte align-left" {{ block.shopify_attributes }}>
+          {{ block.settings.text }}
+        </span>
+
+        {%- when 'button' -%}
+        <div class="f-article__buttons f-article__buttons--multiple">
+          <a class="button button--secondary page-section__button" {% if block.settings.button_to_all_link == blank %}
+            aria-disabled="true" role="link" {% else %} href="{{ block.settings.button_to_all_link }}" {% endif %}>
+            {{ block.settings.button_to_all_label | escape }}
+          </a>
+        </div>
+      </div>
+
+      <div class="col-1_2 product__info-wrapper grid__item">
+        <div class="f-article__image-container">
+
+
+          {%- if section.settings.image != blank -%}
+          <img srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | img_url: '165x' }} 165w,{%- endif -%}
+              {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | img_url: '360x' }} 360w,{%- endif -%}
+              {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | img_url: '535x' }} 535w,{%- endif -%}
+              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
+              {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | img_url: '1070x' }} 1070w,{%- endif -%}
+              {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
+              {{ section.settings.image | img_url: 'master' }} {{ section.settings.image.width }}w"
+            src="{{ section.settings.image | img_url: '1500x' }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}">
+          {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+
+          <div class="f-article__image-content">
+            <h3 class="h3">
+              {{ section.settings.picture_title | truncate: 20, "" }}
+            </h3>
+
+            <p>
+              {{ section.settings.picture_text | truncate: 250, "" }}
+            </p>
+
+            {%- if section.settings.button_label != blank -%}
+              <a class="button button--primary page-section__button" {% if section.settings.button_link == blank %}
+                aria-disabled="true" role="link" {% else %} href="{{ section.settings.button_link }}" {% endif %}>
+                {{ section.settings.button_label | escape }}
+              </a>
+            {%- endif-%}
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+      {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+    {
+    "name": "Featured Article",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "color",
+        "id": "background",
+        "label": "Background Color",
+        "default" : "#FAF8F7"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+    },
+    {
+        "type": "select",
+        "id": "height",
+        "options": [
+        {
+            "value": "adapt",
+            "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+            "value": "small",
+            "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+            "value": "large",
+            "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+        ],
+        "default": "adapt",
+        "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+        "type": "text",
+        "id": "button_label",
+        "default": "Learn More",
+        "label": "t:sections.multicolumn.settings.button_label.label"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.multicolumn.settings.button_link.label"
+    },
+    {
+      "type": "text",
+      "id": "picture_title",
+      "default": "Picture Title",
+      "label": "Picture Title"
+    },
+    {
+      "type": "text",
+      "id": "picture_text",
+      "default": "Picture text",
+      "label": "Picture Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Page name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Page Title",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Explore to all button",
+      "limit": 1,
+      "settings": [
+          {
+            "type": "text",
+            "id": "button_to_all_label",
+            "default": "Explore all articles",
+            "label": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "button_to_all_link",
+            "label": "t:sections.multicolumn.settings.button_link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Article",
+      "blocks": [
+            {
+                "type": "heading"
+            },
+            {
+                "type": "text"
+            },
+            {
+                "type": "button"
+            }
+        ]
+    }
+  ]
+}
+
+{% endschema %}
+

@@ -1,0 +1,79 @@
+{{ 'component-banner-2-col-text.css' | asset_url | stylesheet_tag }}
+
+<div class="section_logos_wrapper" style="background-color:{{ section.settings.color_background }}; color: {{ section.settings.color_text }};">
+  <div class="page-width wrapper__content banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} banner-and-story__grid--reverse{% endif %}">
+    <div class="partners_logo_wrapper">
+
+    {%- for block in section.blocks -%}
+    {% case block.type %}
+
+    {%- when 'partners_logo' -%}
+      <img src="{{ block.settings.partners_logo_image | img_url: '120x' }}" alt="" class="partners_logo">
+
+    {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+
+</div>
+
+<style>
+.partners_logo_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.partners_logo {
+  width: auto;
+  height: 50px;
+  margin: 20px;
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Partners logo",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partners_logo",
+      "name": "Partners logo",
+      "settings": [
+        {
+          "type": "url",
+          "id": "partners_logo_link",
+          "label": "logo link"
+        },
+        {
+          "type": "image_picker",
+          "id": "partners_logo_image",
+          "label": "t:sections.banner-and-story.settings.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partners logo",
+      "blocks": [
+        {
+          "type": "partners_logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

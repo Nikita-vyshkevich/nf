@@ -1,0 +1,275 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-rich-text-lined.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-rich-text-lined.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="richtext_wrapper" style="background-color:{{ section.settings.color_background }}; color:{{ section.settings.color_text }}">
+  <div class="page-width banner-and-story__grid grid--gapless">
+
+    <div class="desk-row__mobile-col empty-margin__{{ section.id }}">
+     
+      {%- for block in section.blocks -%}
+      {%- case block.type -%}
+
+      {%- when 'heading' -%}
+      <div class="col-2_5 align-left">
+        <h2 class="{{ block.settings.heading_size }} rich-text-lined__right-title" {{ block.shopify_attributes }} style="color:{{ section.settings.color_text }}">{{
+          block.settings.heading | escape }}</h2>
+
+      </div>
+
+      {%- when 'text' -%}
+      <div class="col-3_5 align-left">
+        <hr class="vertical_line_mobile_1_{{ section.id }} show-on-mobile">
+        {% style %}
+          @media screen and (max-width: 950px) {
+              hr.vertical_line_mobile_1_{{ section.id }} {
+                border-left: solid 2px;
+                width: 0;
+                border-color: {{ section.settings.line_color }}; 
+                position: absolute;
+                margin-top: 0px;
+                margin-left: 24px;
+                height: {{ section.settings.vertical_line_height_mobile }}px;
+            }
+        {% endstyle %}  
+
+        <div class="rich-text-lined__text__{{ block.id }}  rte" {{ block.shopify_attributes }}>{{ block.settings.text }}
+        </div>
+        {% style %}
+        .rich-text-lined__text__{{ block.id }} {
+        margin-top: {{ section.settings.rich-text-lined__margin-top }}px;
+        }
+        @media screen and (max-width: 750px) {
+        .rich-text-lined__text__{{ block.id }} {
+        margin-top: {{ section.settings.rich-text-lined__margin-top-mobile }}px;
+        padding-left: 40px;
+        }
+        }
+        {% endstyle %}
+      </div>
+
+       <!-- Here is blog article section start  -->
+       {%- when 'featured_posts' -%}
+       {%- if block.settings.article_1 != blank -%}
+       <div class=" mini__item mini__item--posts mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{
+         block.shopify_attributes }}>
+         <div class="mini__post-list">
+           {%- assign show_placeholder = true -%}
+           {%- for i in (1..5) -%}
+           {%- assign article_option = 'article_' | append: i -%}
+           {%- assign article = articles[block.settings[article_option]] -%}
+           {%- unless article.empty? -%}
+           <div class="mini__post-item">
+             {%- if article.image -%}
+             <div class="mini__post-image-wrapper">
+               <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}"
+                 alt="{{ article.image.alt | escape }}" class="mini__post-image">
+             </div>
+             {%- endif -%}
+             <div class="mini__post-info">
+               <h3 class="mini__post-title">{{ article.title }}</h3>
+               <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+               <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+             </div>
+           </div>
+           {%- assign show_placeholder = false -%}
+           {%- endunless -%}
+           {%- endfor -%}
+         </div>
+         {% style %}
+         .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+         margin-top: 0;
+         margin-bottom: 40px;
+         margin-left: auto;
+         margin-right: auto;
+         order: 3;
+         }
+
+         @media screen and (min-width: 950px) {
+         .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+         margin-left: 0;
+         margin-right: auto;
+         padding-top: 0;
+         }
+         }
+
+         @media screen and (min-width: 1900px) {
+         .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+         margin-left: 0;
+         margin-right: auto;
+         padding-top: 0;
+         }
+         }
+         {% endstyle %}
+       </div>
+       {% endif %}
+       <!-- Here is article finish -->
+
+      {%- endcase -%}
+      {%- endfor -%}
+
+    </div>
+  </div>
+</div>
+{% style %}
+.empty-margin__{{ section.id }} {
+margin-top: {{ section.settings.section-padding-top }}%;
+}
+@media screen and (max-width: 750px) {
+.empty-margin__{{ section.id }} {
+margin-top: {{ section.settings.section-padding-top-mobile }}%;
+}
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Colored section text line",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "default": "#000",
+      "label": "Text color"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "rich-text-lined__margin-top",
+      "label": "Text block top position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "rich-text-lined__margin-top-mobile",
+      "label": "Text block top position on mobile",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height_mobile",
+      "default": "0",
+      "label": "Vertical line height on mobile",
+      "info": "This option for change vertical line height for mobile devices. ",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "featured_posts",
+      "name": "Blog posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Colored section text line",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

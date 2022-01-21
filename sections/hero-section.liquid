@@ -1,0 +1,354 @@
+{{ 'component-hero-section.css' | asset_url | stylesheet_tag }}
+
+<!-- Scroll effect -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script> -->
+
+
+<style type="text/css">
+  #animate2,
+  #animate1 {
+    transition: 1s;
+  }
+
+  #animate1 {
+    /* margin-left: 5vw;
+    margin-right: 5vw; */
+  }
+
+  #animate2 {
+    /* margin-top: -50vh; */
+  }
+</style>
+<!-- END Scroll effect -->
+
+<div id="trigger2" class="spacer s0"> </div>
+<div id="container1" class="hero-section {{ section.id }} color-{{ section.settings.color_scheme }}" style="background-color: {{ section.settings.color}};">
+  <div
+    class="page-width wrapper__content hero-section__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} hero-section__grid--reverse{% endif %}">
+
+    <div class="media_content_wrapper">
+      <script>
+        // init controller
+        var controller = new ScrollMagic.Controller();
+      </script>
+
+      <div id="animate1"
+        class="media_content_container {% if section.settings.image == blank %}hero-section__media--placeholder placeholder{% endif %}">
+        
+        {%- if section.settings.image != blank -%}
+        <img srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | img_url: '165x' }} 165w,{%- endif -%}
+              {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | img_url: '360x' }} 360w,{%- endif -%}
+              {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | img_url: '535x' }} 535w,{%- endif -%}
+              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
+              {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | img_url: '1070x' }} 1070w,{%- endif -%}
+              {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
+              {{ section.settings.image | img_url: 'master' }} {{ section.settings.image.width }}w"
+          src="{{ section.settings.image | img_url: '1500x' }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+          alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}" class="hero-image" id="animate2">
+        {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+
+
+
+        <script>
+          // build scene
+          var animateElemWrapper = document.getElementById("animate1");
+          var animateElemImage = document.getElementById("animate2");
+          var scene = new ScrollMagic.Scene({ triggerElement: "#trigger2", duration: 500, offset: 120 })
+            .on("enter", function () {
+              animateElemWrapper.style.cssText = `
+                                      width: 100vw;
+                                      height: 100vh;
+                                      margin-left: 0vw;
+                                      margin-right: 0vw;
+                                      border-radius: 0;
+                                      top: 0;
+                                    `;
+
+              animateElemImage.style.cssText = `
+                                      transition: 1s;   
+                                      border-radius: 0;
+                                      height: 100%;
+                                      width: 100%;
+                                      object-fit: cover;
+                                    `;
+
+            })
+            // .setPin("#animate2")
+
+            .on("leave", function () {
+              animateElemWrapper.style.cssText = `
+                                      width: 90vw;
+                                      height: 90vh;
+                                      margin-left: 5vw;
+                                      margin-right: 5vw;
+                                    `;
+
+              animateElemImage.style.cssText = `
+                                      transition: 1s;   
+                                      border-radius: 20px;
+                                      object-fit: cover;
+                                      transition: 1s;   
+                                      height: 100%;
+                                      width: 100%;
+                                      object-fit: cover;
+                                      scale: 1;
+                                    `;
+
+
+            })
+            // .setPin("#animate2")
+            .addIndicators({ name: "2 - change inline style" }) // add indicators (requires plugin)
+            .addTo(controller);
+
+        </script>
+
+      </div>
+    </div>
+
+
+
+    <div class="grid__item">
+
+      <div class="hero-section__content hero-section__content--{{ section.settings.height }}">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+
+        {%- when 'heading' -%}
+        <div class="title_row">
+          <h2 class="h2" {{ block.shopify_attributes }}>
+            {{ block.settings.heading | escape }}
+          </h2>
+        </div>
+
+        {%- when 'text' -%}
+        <div class="page-width"> 
+            <div class="hero-section__text rte" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+        </div>
+          
+
+            {%- when 'button' -%}
+            <div class="centered_row">
+            {% if block.settings.button_link != blank %}
+              <a {% if block.settings.button_link == blank %} aria-disabled="true" {% endif %}
+                href="{{ block.settings.button_link }}" class="button  {{ block.settings.button_style }} " {{
+                block.shopify_attributes }}>
+                {{ block.settings.button_label | escape }}
+              </a>
+            {% endif %}
+            {% if block.settings.button_2_link != blank %}
+              <a {% if block.settings.button_2_link == blank %} aria-disabled="true" {% endif %}
+                href="{{ block.settings.button_2_link }}" class="button {{ block.settings.button_2_style }}" {{
+                block.shopify_attributes }}>
+                {{ block.settings.button_2_label | escape }}
+              </a>
+            {% endif %}
+          </div>
+
+            {%- endcase -%}
+            {%- endfor -%}
+          
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // window.addEventListener("load", function() {
+  //   let sectionID = '{{ section.id }}';
+  //   let section = document.querySelector('.hero-section');
+  //   let box = document.querySelector('.hero-image');
+  //   let heightBox = box.clientHeight;
+  //   let heightBoxHalf = (box.clientHeight / 2);
+
+
+  //   box.style.marginTop = '-' + Number(heightBoxHalf) + 'px';
+  //   section.style.marginTop = Number(heightBoxHalf + 100) + 'px';
+  // });
+</script>
+
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "default": "#fff",
+      "label": "t:sections.banner-and-story.settings.color_scheme.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.banner-and-story.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.banner-and-story.settings.layout.label",
+      "info": "t:sections.banner-and-story.settings.layout.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.banner-and-story.blocks.heading.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.banner-and-story.blocks.text.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.banner-and-story.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.button.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "header",
+          "content": "First button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--tertiary",
+              "label": "Tartiary"
+            }
+          ],
+          "default": "button--primary",
+          "label": "t:sections.rich-text.settings.color_scheme.label"
+        },
+        {
+          "type": "header",
+          "content": "Second button"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "default": "Second button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_2_style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--tertiary",
+              "label": "Tartiary"
+            }
+          ],
+          "default": "button--primary",
+          "label": "t:sections.rich-text.settings.color_scheme.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

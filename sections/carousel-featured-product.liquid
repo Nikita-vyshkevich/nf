@@ -1,0 +1,213 @@
+{{ 'component-carousel-product.css' | asset_url | stylesheet_tag }}
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+
+<style type="text/css">
+  .slider-wrapper {
+      margin: auto;
+      margin-top: 20px;
+  }
+
+  /* .slick-slide {
+    margin: 0px 20px;
+  } */
+
+  .slick-prev:before,
+  .slick-next:before {
+    color: black;
+  }
+
+  @media screen and (max-width: 750px) {
+    .slick-prev,
+    .slick-next {
+      display: none!Important;
+    }
+  }
+
+  .slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+  }
+  
+  .slick-active {
+    opacity: .5;
+  }
+
+  .slick-current {
+    opacity: 1;
+  }
+</style>
+
+
+<div class="product-slider-section {{ section.id }} color-{{ section.settings.color_scheme }}" style="background-color: {{ section.settings.color}};">
+  <div class="page-width wrapper__content">
+      <div class="product-slider-section__content">
+        <div class="slide_content_wrapper">
+          
+          
+          <section class="lazy" >
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+
+          {%- when 'product' -%}
+                <div class="slider-wrapper" style="
+                display: flex!Important; 
+                flex-direction: row; 
+                box-sizing: border-box;
+                background-color: #fff;
+                width: 100%;
+                border-radius: 20px;
+                overflow: hidden;">
+
+                    <div class="left-col">
+                        <img src="{{ block.settings.image | img_url: '1000x' }}" class="product-emotion-pic">
+                    </div>
+            
+                    <div class="middle-col">
+                      <div class="description_slide">
+
+                        <div class="badge_wrapper" style="justify-content: flex-start;">  
+                          <span class="featured-product-dadge">Featured Product</span>
+                        </div>
+
+                        {% if  block.settings.heading != blank %}
+                          <h3 class="h3">
+                            {{ block.settings.heading | escape }}
+                          </h3>
+                        {% endif %} 
+
+                        {% if  block.settings.text != blank %}
+                          <div class="p-sm">
+                            {{ block.settings.text | truncate: 160}}
+                          </div>
+                        {% endif %} 
+
+                        {% if block.settings.button_link != blank %}
+                          <a {% if block.settings.button_link == blank %} aria-disabled="true" {% endif %}
+                            href="{{ block.settings.button_link }}" class="button  {{ block.settings.button_style }} " {{
+                            block.shopify_attributes }}>
+                            {{ block.settings.button_label | escape }}
+                          </a>
+                        {% endif %}    
+                      </div>
+                    </div>
+
+                    <div class="right-col">
+                      <img src="{{ block.settings.iproduct_image | img_url: '500x' }}" class="product-image">
+                    </div>
+                   
+                  </div> 
+    
+      
+            
+            {%- endcase -%}
+            {%- endfor -%}
+
+          </section>
+      </div>
+
+      </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="{{ 'slick.js' | asset_url }}"></script>
+
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".lazy").slick({
+      lazyLoad: 'ondemand', // ondemand progressive anticipated
+      infinite: true,
+      dots: true
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Carousel featured product",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "default": "#fff",
+      "label": "t:sections.banner-and-story.settings.color_scheme.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Featured product slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Picture"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.banner-and-story.blocks.text.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--tertiary",
+              "label": "Tartiary"
+            }
+          ],
+          "default": "button--primary",
+          "label": "t:sections.rich-text.settings.color_scheme.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "iproduct_image",
+          "label": "Product picture"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel featured product",
+      "blocks": [
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+

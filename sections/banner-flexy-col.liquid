@@ -1,0 +1,754 @@
+{{ 'component-banner-2-col-text.css' | asset_url | stylesheet_tag }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
+
+<div class="section_wrapper wrapper__{{ section.id }} " style="background-color:{{ section.settings.color_background }}; color: {{ section.settings.color_text }};">
+  <div class="page-width wrapper__content banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} banner-and-story__grid--reverse{% endif %}">
+    <div class="media_content_wrapper">
+      <div{% if section.settings.full_width %} class="page-width" {% endif %}>
+        <h2 class="title">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="media_content_container">
+      {%- if section.settings.cover_image != blank -%}
+      <img srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                    {{ section.settings.cover_image | img_url: 'master' }} {{ section.settings.cover_image.width }}w"
+        src="{{ section.settings.cover_image | img_url: '1920x' }}"
+        sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+        alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}" loading="lazy"
+        width="{{ section.settings.cover_image.width }}" height="{{ section.settings.cover_image.height }}"
+        style="object-fit: cover; border-radius: 20px; position: relative;">
+
+      <div class="banner_conntent">
+
+          {%- if section.settings.banner_title != blank -%}
+           <h2 class="h1">{{ section.settings.banner_title }}</h2>
+          {%- endif-%}
+          
+          {%- if section.settings.banner_text != blank -%}
+            <p class="p">
+              {{ section.settings.banner_text }}
+            </p>
+          {%- endif-%}
+
+          {%- if section.settings.button_label != blank -%}
+            <a class="button  {% if section.settings.button_type == 'button--primary' %} button--primary {% elsif section.settings.button_type == 'button--secondary' %} button--secondary {% elsif section.settings.button_type == 'button--tertiary' %} button--tertiary {% endif %} page-section__button" {% if section.settings.button_link == blank %}
+              aria-disabled="true" role="link" {% else %} href="{{ section.settings.button_link }}" {% endif %}>
+              {{ section.settings.button_label | escape }}
+            </a>
+          {%- endif-%}
+      </div>  
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<div class="page-width">
+  <div class="grid-mas">
+
+    <hr class="vertical_line_mobile_1_{{ section.id }} show-on-mobile">
+    {% style %}
+    @media screen and (max-width: 950px) {
+    hr.vertical_line_mobile_1_{{ section.id }} {
+    border-left: solid 2px;
+    width: 0;
+    border-color: {{ section.settings.line_color }};
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 24px;
+    }
+    {% endstyle %}
+
+    {%- for block in section.blocks -%}
+    {% case block.type %}
+
+    {%- when 'heading' -%}
+    <div class="mgrid-item mgrid-item--width2 mgrid-item--height-auto">
+      <h2 class="video-and-story__heading h1" style="color:{{ section.settings.color_text }}">
+        {{ block.settings.heading | escape }}
+      </h2>
+
+      {%- if block.settings.heading_vertical_line_height > 10 -%}
+      <div class="line_area show-on-desktop">
+        <hr style=" border-left: solid 2px;
+                      width: 0;
+                      height: {{ block.settings.heading_vertical_line_height }}px;
+                      border-color: {{ section.settings.line_color }}; 
+                      margin-left: {{ block.settings.heading_vertical_line_margin_left }}%;
+                      margin-top: 5px;
+                      margin-bottom: 5px;">
+
+      </div>
+      {%- endif -%}
+    </div>
+
+
+    {%- when 'text' -%}
+    <div 
+      class="mgrid-item mgrid-item--width2 mgrid-item--height-auto block-1"
+      style="padding-top: {{ block.settings.padding_top }}px;
+      padding-bottom: {{ block.settings.padding_bottom }}px;"
+      >
+
+      {%- if block.settings.before_text_line_height > 10 -%}
+      <div class="line_area show-on-desktop">
+        <hr style=" border-left: solid 2px;
+                          width: 0;
+                          height: {{ block.settings.before_text_line_height }}px;
+                          border-color: {{ block.settings.text_line_color }}; 
+                          margin-left: {{ block.settings.before_text_line_margin_left }}%;
+                          margin-top: -50px;
+                          margin-bottom: 5px;">
+      </div>
+      {%- endif -%}
+
+      {%- if block.settings.code_1 != blank -%}
+        <div class="information__text rte" style="color:{{ section.settings.color_text }}">{{ block.settings.code_1 }}
+          </div>
+      {%- endif -%}
+
+      {%- if block.settings.text != blank -%}
+        <div class="information__text rte" style="color:{{ section.settings.color_text }}"> {{ block.settings.text }}
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.code_2 != blank -%}
+        <div class="information__text rte" style="color:{{ section.settings.color_text }}">{{ block.settings.code_2 }}
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.after_text_line_heigh > 10 -%}
+        <div class="line_area show-on-desktop">
+          <hr style=" border-left: solid 2px;
+                            width: 0;
+                            height: {{ block.settings.after_text_line_height }}px;
+                            border-color: {{ block.settings.text_line_color }}; 
+                            margin-left: {{ block.settings.after_text_line_margin_left }}%;
+                            margin-top: 5px;
+                            margin-bottom: 5px;">
+        </div>
+      {%- endif -%}
+    </div>
+
+
+    <!-- Here is blog article section start  -->
+    {%- when 'featured_posts' -%}
+    {%- if block.settings.article_1 != blank -%}
+    <div class="mgrid-item mgrid-item--width2 mgrid-item--height-auto block-3">
+      <div class=" mini__item mini__item--posts mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{
+        block.shopify_attributes }}>
+        <div class="mini__post-list">
+          {%- assign show_placeholder = true -%}
+          {%- for i in (1..5) -%}
+          {%- assign article_option = 'article_' | append: i -%}
+          {%- assign article = articles[block.settings[article_option]] -%}
+          {%- unless article.empty? -%}
+          <div class="mini__post-item">
+            {%- if article.image -%}
+            <div class="mini__post-image-wrapper">
+              <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}"
+                alt="{{ article.image.alt | escape }}" class="mini__post-image">
+            </div>
+            {%- endif -%}
+            <div class="mini__post-info">
+              <h3 class="mini__post-title">{{ article.title }}</h3>
+              <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+              <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+            </div>
+          </div>
+          {%- assign show_placeholder = false -%}
+          {%- endunless -%}
+          {%- endfor -%}
+        </div>
+        {% style %}
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        margin-top: 0;
+        margin-bottom: -400px!Important;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        @media screen and (min-width: 950px) {
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        margin-bottom: -0px!Important;
+        padding-top: 0;
+        margin-left: 0;
+        margin-right: auto;
+        }
+        }
+
+        @media screen and (min-width: 1900px) {
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        padding-top: 0;
+        }
+        }
+        {% endstyle %}
+
+        <!-- {%- if block.settings.post_align.value == 'align_left' -%}
+          {% style %}
+          @media screen and (min-width: 950px) {
+          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+          margin-bottom: -0px!Important;
+          padding-top: 0;
+          margin-left: 0;
+          margin-right: auto;
+          }
+          }
+          {% endstyle %}
+        {%- else -%}
+        {% style %}
+        @media screen and (min-width: 950px) {
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        margin-bottom: -0px!Important;
+        padding-top: 0;
+        margin-left: auto;
+        margin-right: 0;
+        }
+        }
+        {% endstyle %}
+        {%- endif -%} -->
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        let sectionID = '{{ section.id }}';
+        let sectionWrapper = document.querySelector('.wrapper__'+ sectionID);
+        sectionWrapper.classList.add('margins-when-article');
+      });
+    </script>
+    {% endif %}
+   
+
+
+    {%- when 'vertical_line' -%}
+    <div class="mgrid-item mgrid-item--width2 mgrid-item--height1 show-on-desktop">
+      <hr class="vertical_line_{{ block.id }}">
+      {% style %}
+      hr.vertical_line_{{ block.id }} {
+      border-left: solid 2px;
+      width: 0;
+      height: {{ block.settings.vertical_line_height }}px;
+      border-color: {{ section.settings.line_color }};
+      margin-left: {{ block.settings.vertical_line_margin_left }}%;
+      margin-top: {{ block.settings.vertical_line_top_position }}px;
+      }
+      {% endstyle %}
+
+
+      {%- when 'empty_block' -%}
+      <div class="mgrid-item mgrid-item--width2 mgrid-item--height-auto show-on-desktop">
+        <div class="empty_block_{{ block.id }}"> <br> </div>
+        {% style %}
+        .empty_block_{{ block.id }} {
+        width: 0;
+        height: {{ block.settings.empty_block_height }}px;
+
+        }
+        {% endstyle %}
+      </div>
+
+
+
+      {%- endcase -%}
+      {%- endfor -%}
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+
+  .grid-mas {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  /* clearfix */
+  .grid-mas:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  /* ---- mgrid-item ---- */
+
+  .mgrid-item {
+    height: 120px;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mgrid-item--width2 {
+    width: 50%
+  }
+
+  .mgrid-item--width3 {
+    width: 480px;
+  }
+
+  .mgrid-item--width4 {
+    width: 640px;
+  }
+
+  .mgrid-item--height1 {
+    height: 100px;
+  }
+
+  .mgrid-item--height2 {
+    height: 200px;
+  }
+
+  .mgrid-item--height3 {
+    height: 260px;
+  }
+
+  .mgrid-item--height4 {
+    height: 360px;
+  }
+
+  .mgrid-item--height-auto {
+    height: auto;
+  }
+
+  @media screen and (max-width: 950px) {
+    .mgrid-item--width2 {
+      width: 100%;
+    }
+
+    .line-container {
+      display: none;
+    }
+
+    .mgrid-item {
+      padding-top: 5px!Important;
+      padding-bottom: 5px!Important;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+
+  .line {
+    display: block;
+    height: 120px;
+    width: 1px;
+    border-left: solid 2px black;
+    margin-left: 50%;
+    position: absolute;
+    margin-top: -10px;
+  }
+
+  .line_area {
+    height: auto;
+    width: 100%;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    let box = document.querySelector('.grid-mas');
+    let heightBox = box.clientHeight;
+    let sectionID = '{{ section.id }}';
+    let heightOption = '{{ section.settings.vertical_line_height_mobile }}'
+    let line = document.getElementsByClassName('vertical_line_mobile_1_' + sectionID)[0];
+    line.style.height = Number(heightBox - 200) + Number(heightOption) + 'px';
+  });
+</script>
+
+<script>
+  $('.grid-mas').masonry({
+    itemSelector: '.mgrid-item',
+    columnWidth: '.mgrid-item--width2',
+    percentPosition: true
+  });
+</script>
+
+
+
+
+{% schema %}
+{
+  "name": "Banner & flexy columns",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "default": "#000",
+      "label": "Text color"
+    },  
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.banner-and-story.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.banner-and-story.settings.layout.label",
+      "info": "t:sections.banner-and-story.settings.layout.info"
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height_mobile",
+      "default": "0",
+      "label": "Vertical line height on mobile",
+      "info": "This option for change vertical line height for mobile devices. ",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Banner content"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.multicolumn.settings.button_label.label"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.multicolumn.settings.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Button secondary"
+        },
+        {
+          "value": "button--tertiary",
+          "label": "Button tertiary"
+        }
+      ],
+      "default": "button--primary",
+      "label": "Primary button"
+    } 
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.banner-and-story.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Title of Story",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "header",
+          "content": "Vertical line"
+        },
+        {
+          "type": "range",
+          "id": "heading_vertical_line_height",
+          "default": "0",
+          "label": "Vertical line height",
+          "info": "This option for change vertical line height",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "heading_vertical_line_margin_left",
+          "default": "0",
+          "label": "Vertical line horizontal position",
+          "info": "This option for change vertical line horizontal position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.banner-and-story.blocks.text.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Vertical line before text"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "default": "0",
+          "label": "Gap before text",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "text_line_color",
+          "default": "#000",
+          "label": "Lines color",
+          "info": "Choose the lines color"
+        },
+        {
+          "type": "range",
+          "id": "before_text_line_height",
+          "default": "0",
+          "label": "Vertical line height",
+          "info": "This option for change vertical line height",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "before_text_line_margin_left",
+          "default": "0",
+          "label": "Vertical line horizontal position",
+          "info": "This option for change vertical line horizontal position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "html",
+          "id": "code_1",
+          "label": "HTML before text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Story Text.</p>",
+          "label": "Write your text here"
+        },
+        {
+          "type": "html",
+          "id": "code_2",
+          "label": "HTML after text"
+        },
+        {
+          "type": "header",
+          "content": "Vertical line after text"
+        },
+        {
+          "type": "range",
+          "id": "bafter_text_line_height",
+          "default": "0",
+          "label": "Vertical line height",
+          "info": "This option for change vertical line height",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "after_text_line_margin_left",
+          "default": "0",
+          "label": "Vertical line horizontal position",
+          "info": "This option for change vertical line horizontal position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "default": "0",
+          "label": "Gap after text",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 10
+        }
+      ]
+    },
+    {
+      "type": "featured_posts",
+      "name": "Blog posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        },
+        {
+          "type": "select",
+          "id": "post_align",
+          "label": "Align left right post",
+          "default": "align_left",
+          "options": [
+            {
+              "value": "align_left",
+              "label": "Align left"
+            },
+            {
+              "value": "align_right",
+              "label": "Align right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vertical_line",
+      "name": "Vertical line",
+      "settings": [
+        {
+          "type": "range",
+          "id": "vertical_line_height",
+          "default": "0",
+          "label": "Vertical line height",
+          "info": "This option for change vertical line height",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "vertical_line_top_position",
+          "default": "0",
+          "label": "Vertical line top position on desktop",
+          "info": "This option for move vertical line up",
+          "min": -200,
+          "max": 200,
+          "step": 4,
+          "default": -28
+        },
+        {
+          "type": "range",
+          "id": "vertical_line_margin_left",
+          "default": "0",
+          "label": "Vertical line horizontal position",
+          "info": "This option for change vertical line horizontal position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        }
+      ]
+    },
+    {
+      "type": "empty_block",
+      "name": "Empty spacing block",
+      "settings": [
+        {
+          "type": "range",
+          "id": "empty_block_height",
+          "default": "0",
+          "label": "Empty block height",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 100
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner & flexy columns",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "featured_posts"
+        },
+        {
+          "type": "vertical_line"
+        },
+        {
+          "type": "empty_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

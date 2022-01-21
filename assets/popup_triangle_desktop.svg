@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="63px" height="44px" viewBox="0 0 63 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Mask</title>
+    <defs>
+        <path d="M0,18.1550117 L0,8.11084907 C2.32635838e-15,5.34942532 2.23857625,3.11084907 5,3.11084907 C5.78008064,3.11084907 6.54934018,3.29337351 7.24626759,3.64382748 L34.0534331,17.1239654 C35.3987972,17.8004895 36.8925009,18.1283615 38.3975268,18.0775058 C38.4165099,18.0768644 38.4313787,18.0609556 38.4307373,18.0419725 C38.4301094,18.0233905 38.4148269,18.0086719 38.3962344,18.0087427 L0,18.1550117" id="path-1"></path>
+        <filter x="-61.4%" y="-93.0%" width="217.3%" height="358.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-/-Products-/-Product-Details-(Icons)" transform="translate(-539.000000, -724.000000)">
+            <g id="Popup" transform="translate(554.000000, 730.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

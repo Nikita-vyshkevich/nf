@@ -1,0 +1,49 @@
+.custom-collection {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.custom-collection__container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.view-all_button_row {
+    margin-top: 6rem;
+}
+
+.scroll-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 5px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (max-width: 750px) {       
+    .scroll-container {
+        flex-direction: column;
+        height: 539px;
+        overflow: hidden;
+    }
+
+    .custom-collection__container {
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .custom-collection__container .multiple-items {
+        height: 532px;
+        overflow: hidden;
+    }
+}
+
+.scrolable-collection {
+    margin-bottom: 50px;
+}

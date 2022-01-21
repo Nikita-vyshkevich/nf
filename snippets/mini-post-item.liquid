@@ -1,0 +1,49 @@
+     <!-- Here is blog article section start  -->
+
+     <div class="mini__item mini__item--posts" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+
+       <div class="mini__post-list">
+         {%- assign show_placeholder = true -%}
+
+         {%- for i in (1..5) -%}
+           {%- assign article_option = 'article_' | append: i -%}
+           {%- assign article = articles[block.settings[article_option]] -%}
+
+           {%- unless article.empty? -%}
+             <div class="mini__post-item">
+               {%- if article.image -%}
+                 <div class="mini__post-image-wrapper">
+                   
+                     <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}" alt="{{ article.image.alt | escape }}" class="mini__post-image">
+
+                 </div>
+               {%- endif -%}
+
+               <div class="mini__post-info">
+                 
+                 <h3 class="mini__post-title">{{ article.title }}</h3>
+                 <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+                 <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+
+               </div>
+             </div>
+
+             {%- assign show_placeholder = false -%}
+           {%- endunless -%}
+         {%- endfor -%}
+
+       </div>
+     </div>
+     <!-- Here is blog article section finish  -->
+
+     {% style %}
+      .mini__item--posts {
+        z-index: 9;
+      }
+    
+      @media screen and (max-width: 750px) {
+        .mini__item--posts {
+          
+        }
+      }
+     {% endstyle %}

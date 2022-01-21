@@ -1,0 +1,229 @@
+{{ 'carousel-collection-top.css' | asset_url | stylesheet_tag }}
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+
+
+
+<div class="collection-slider-section {{ section.id }} color-{{ section.settings.color_scheme }}" style="background-color: {{ section.settings.color}};">
+      <div class="collection-slider-section__content">
+        <div class="slide_wrapper">
+        
+        <section class="lazy">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+
+          {%- when 'product' -%}
+                <div class="collection_slider-wrapper">
+
+                  <div class="wrapper__{{ section.id }} " style="background-color:{{ block.settings.color_background }}; color: {{ block.settings.color_text }};">
+                      <div class="slide_content_inner">
+
+                        {%- if block.settings.cover_image != blank -%}
+                        <img srcset="{%- if block.settings.cover_image.width >= 375 -%}{{ block.settings.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 750 -%}{{ block.settings.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 1100 -%}{{ block.settings.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 1500 -%}{{ block.settings.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 1780 -%}{{ block.settings.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 2000 -%}{{ block.settings.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 3000 -%}{{ block.settings.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                                      {%- if block.settings.cover_image.width >= 3840 -%}{{ block.settings.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                                      {{ block.settings.cover_image | img_url: 'master' }} {{ block.settings.cover_image.width }}w"
+                          src="{{ block.settings.cover_image | img_url: '1920x' }}"
+                          sizes="{% if block.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                          alt="{{ 'sections.video.load_video' | t: description: block.settings.description | escape }}" loading="lazy"
+                          class="show-on-desktop"
+                        >
+                        {%- endif -%}
+
+                        {%- if block.settings.mobile_image != blank -%}
+                        <img srcset="{%- if block.settings.mobile_image.width >= 375 -%}{{ block.settings.mobile_image | img_url: '375x' }} 375w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 750 -%}{{ block.settings.mobile_image | img_url: '750x' }} 750w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 1100 -%}{{ block.settings.mobile_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 1500 -%}{{ block.settings.mobile_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 1780 -%}{{ block.settings.mobile_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 2000 -%}{{ block.settings.mobile_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 3000 -%}{{ block.settings.mobile_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                                      {%- if block.settings.mobile_image.width >= 3840 -%}{{ block.settings.mobile_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                                      {{ block.settings.mobile_image | img_url: 'master' }} {{ block.settings.mobile_image.width }}w"
+                          src="{{ block.settings.mobile_image | img_url: '1920x' }}"
+                          sizes="{% if block.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                          alt="{{ 'sections.video.load_video' | t: description: block.settings.description | escape }}" loading="lazy"
+                          class="show-on-mobile"
+                        >
+                        {%- endif -%}
+
+                        <div class="slide_banner_conntent">
+
+                            {%- if block.settings.banner_title != blank -%}
+                            <h2 class="h1">{{ block.settings.banner_title }}</h2>
+                            {%- endif-%}
+                            
+                            {%- if block.settings.banner_text != blank -%}
+                              <p class="p">
+                                {{ block.settings.banner_text }}
+                              </p>
+                            {%- endif-%}
+
+                            {%- if block.settings.button_label != blank -%}
+                              <a class="button {% if block.settings.button_style == 'button--primary' %} button--primary {% elsif block.settings.button_style == 'button--secondary' %} button--secondary {% elsif block.settings.button_style == 'button--tertiary' %} button--tertiary {% endif %} page-section__button" {% if block.settings.button_link == blank %}
+                                aria-disabled="true" role="link" {% else %} href="{{ block.settings.button_link }}" {% endif %}>
+                                {{ block.settings.button_label | escape }}
+                              </a>
+                            {%- endif-%}
+                        </div>  
+
+                     
+                    </div>
+                  </div> 
+                  </div>  
+      
+            
+            {%- endcase -%}
+            {%- endfor -%}
+          </section>
+          
+      </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="{{ 'slick.js' | asset_url }}"></script>
+
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".lazy").slick({
+      lazyLoad: 'ondemand', // ondemand progressive anticipated
+      infinite: true,
+      dots: true,
+      arrows: false,
+      autoplay: false
+    });
+  });
+</script>
+
+
+<style type="text/css">
+  @media screen and (max-width: 750px) {
+    button.slick-prev,
+    button.slick-next {
+      display: none!Important;
+    }
+  }
+
+  .collection-slider-section__content > .slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+    margin-left: 0!Important;
+    margin-right:  0!Important;
+  }
+  
+  .slick-active {
+    opacity: .5;
+  }
+
+  .slick-current {
+    opacity: 1;
+  }
+
+  .slick-slide img.show-on-desktop {
+    display: none;
+  }
+  .slick-slide img.show-on-mobile {
+    display: block;
+  }
+  @media screen and (min-width: 950px){
+    .slick-slide img.show-on-desktop {
+      display: block;
+    }
+    .slick-slide img.show-on-mobile {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Carousel collection top",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "default": "#fff",
+      "label": "t:sections.banner-and-story.settings.color_scheme.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Featured product slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Picture"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile picture"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "banner_text",
+          "label": "t:sections.banner-and-story.blocks.text.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--tertiary",
+              "label": "Tartiary"
+            }
+          ],
+          "default": "button--primary",
+          "label": "t:sections.rich-text.settings.color_scheme.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel collection top",
+      "blocks": [
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+

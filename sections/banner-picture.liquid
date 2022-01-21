@@ -1,0 +1,162 @@
+{{ 'component-banner-2-col-text.css' | asset_url | stylesheet_tag }}
+
+<div class="section_wrapper" style="background-color:{{ section.settings.color_background }}; color: {{ section.settings.color_text }};">
+  <div class="page-width wrapper__content banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} banner-and-story__grid--reverse{% endif %}">
+    <div class="media_content_wrapper">
+
+    <div class="media_content_container">
+      {%- if section.settings.cover_image != blank -%}
+      <img srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                    {{ section.settings.cover_image | img_url: 'master' }} {{ section.settings.cover_image.width }}w"
+        src="{{ section.settings.cover_image | img_url: '1920x' }}"
+        sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+        alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}" loading="lazy"
+        width="{{ section.settings.cover_image.width }}" height="{{ section.settings.cover_image.height }}"
+        style="object-fit: cover; border-radius: 20px; position: relative;">
+
+      <div class="banner_conntent">
+
+          {%- if section.settings.banner_title != blank -%}
+           <h2 class="h1">{{ section.settings.banner_title }}</h2>
+          {%- endif-%}
+          
+          {%- if section.settings.banner_text != blank -%}
+            <p class="p">
+              {{ section.settings.banner_text }}
+            </p>
+          {%- endif-%}
+
+          {%- if section.settings.button_label != blank -%}
+            <a class="button  {% if section.settings.button_type == 'button--primary' %} button--primary {% elsif section.settings.button_type == 'button--secondary' %} button--secondary {% elsif section.settings.button_type == 'button--tertiary' %} button--tertiary {% endif %} page-section__button" {% if section.settings.button_link == blank %}
+              aria-disabled="true" role="link" {% else %} href="{{ section.settings.button_link }}" {% endif %}>
+              {{ section.settings.button_label | escape }}
+            </a>
+          {%- endif-%}
+      </div>  
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "Banner picture",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.banner-and-story.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.banner-and-story.settings.layout.label",
+      "info": "t:sections.banner-and-story.settings.layout.info"
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height_mobile",
+      "default": "0",
+      "label": "Vertical line height on mobile",
+      "info": "This option for change vertical line height for mobile devices. ",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Banner content"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.multicolumn.settings.button_label.label"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.multicolumn.settings.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "options": [
+        {
+          "value": "button--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "button--secondary",
+          "label": "Button secondary"
+        },
+        {
+          "value": "button--tertiary",
+          "label": "Button tertiary"
+        }
+      ],
+      "default": "button--primary",
+      "label": "Primary button"
+    } 
+  ]
+}
+{% endschema %}
+

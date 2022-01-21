@@ -1,0 +1,411 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-rich-text-lined.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-rich-text-lined.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class=" {% unless section.settings.full_width %}page-width{% endunless %}">
+  <div class="wrapper__1440 color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} {% endif %}">
+    
+    <div class="desk-row__mobile-col empty-margin__{{ section.id }}">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+        {%- when 'heading' -%}
+          <div class="col-1_3">  
+            <h2 class="{{ block.settings.heading_size }} rich-text-lined__title__{{ block.id }}" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
+
+            <hr class="vertical_line_{{ block.id }}">
+                {% style %}
+                  .rich-text-lined__title__{{ block.id }} {
+                    {% if block.settings.title-align == "right" %} 
+                      text-align: right;
+                      padding-left: 5%;
+                      {% elsif block.settings.title-align == "left" %}
+                      text-align: left;
+                      padding-right: 5%;
+                    {% endif %}
+                  }
+
+                  hr.vertical_line_{{ block.id }} {
+                    border-left: solid 2px;
+                    width: 0;
+                    height: {{ block.settings.vertical_line_height }}px;
+                    border-color: {{ block.settings.line_color }}; 
+                    margin-left: {{ block.settings.vertical_line_margin_left }}%;
+                    margin-top: 0;
+                    margin-bottom: -{{ block.settings.vertical_line_bottom_position }}px;
+                  }
+                  @media screen and (max-width: 750px) {
+                    .col-1_3 {
+                      order: 1;
+                    }
+                    hr.vertical_line_{{ block.id }} {
+                      margin-left: 44px;
+                      height: {{ block.settings.vertical_line_height_mobile }}px;
+                    }
+                    .rich-text-lined__title__{{ block.id }} {
+                      order: 1;
+                    }
+                  }
+                {% endstyle %}
+          </div>
+
+          {%- when 'text' -%}
+          <div class="col-2_3">
+              <div class="rich-text-lined__text__{{ block.id }} rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+                {% style %}
+                  .rich-text-lined__text__{{ block.id }} {
+                    margin-top: {{ block.settings.rich-text-lined__margin-top }}px;
+                    padding-left: {{ block.settings.rich-text-lined__padding_left}}%;
+                    padding-right: {{ block.settings.rich-text-lined__padding_right}}%;
+                    {% if block.settings.text-align == "right" %} 
+                      text-align: right;
+                      {% else %}
+                      text-align: left;
+                    {% endif %}
+                  }
+
+                  .rich-text-lined__text__{{ block.id }} p {
+                    width: {{ block.settings.rich-text-lined__width}}%;
+                  }
+
+                  @media screen and (max-width: 950px) {
+                    .col-2_3 {
+                      order: 2;
+                    }
+                    
+                    .rich-text-lined__text__{{ block.id }} {
+                      margin-top: {{ block.settings.rich-text-lined__margin-top-mobile }}px;
+                      padding-left: 0;
+                      padding-right: 0;
+                      order: 2;
+                    }
+
+                    .rich-text-lined__text__{{ block.id }} p {
+                      width: 100%;
+                    }
+                  }
+                {% endstyle %}
+
+
+            <!-- <hr class="horizontal_line_{{ block.id }}">
+              {% style %}
+                hr.horizontal_line_{{ block.id }} {
+                  border-bottom: solid 2px;
+                  width: 25%;
+                  height: 2px;
+                  border-color: {{ section.settings.line_color }}; 
+                  position: absolute;
+                  right: 0;
+                  margin-top: {{ section.settings.horizontal_line_top_position }}px;
+                }
+                @media screen and (max-width: 750px) {
+                  hr.horizontal_line_{{ block.id }} {
+                    margin-top: {{ section.settings.horizontal_line_top_position_mobile }}px; 
+                    width: 15%;
+                }
+              {% endstyle %} -->
+
+          </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+
+  {% style %}
+  .empty-margin__{{ section.id }} {
+    margin-top: {{ section.settings.section-padding-top }}%;
+  }
+  @media screen and (max-width: 750px) {
+    .empty-margin__{{ section.id }} {
+      margin-top: {{ section.settings.section-padding-top-mobile }}%;
+    }
+  }
+  {% endstyle %}
+
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Rich text with line",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "blocks": [
+  {
+    "type": "heading",
+    "name": "t:sections.rich-text.blocks.heading.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Talk about your brand",
+        "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+      },
+      {
+        "type": "select",
+        "id": "title-align",
+        "options": [
+          {
+            "value": "left",
+            "label": "Align left"
+          },
+          {
+            "value": "right",
+            "label": "Align right"
+          }
+        ],
+        "default": "left",
+        "label": "Align title"
+      },
+      {
+        "type": "color",
+        "id": "line_color",
+        "default": "#000",
+        "label": "Lines color",
+        "info": "Choose the lines color"
+      },
+      {
+        "type": "range",
+        "id": "vertical_line_height",
+        "label": "Vertical line height",
+        "info": "This option for change vertical line height",
+        "min": 0,
+        "max": 500,
+        "step": 5,
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "vertical_line_bottom_position",
+        "label": "Vertical line bottom position",
+        "info": "This option for move vertical line up",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "vertical_line_margin_left",
+        "label": "Vertical line horizontal position",
+        "info": "This option for change vertical line horizontal position",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "vertical_line_height_mobile",
+        "label": "Vertical line height on mobile",
+        "info": "This option for change vertical line height for mobile devices",
+        "min": 0,
+        "max": 500,
+        "step": 5,
+        "default": 50
+      }
+    ]
+  },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand.</p>",
+          "label": "First column text"
+        },
+        {
+          "type": "select",
+          "id": "text-align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Align left"
+            },
+            {
+              "value": "right",
+              "label": "Align right"
+            }
+          ],
+          "default": "left",
+          "label": "Align text"
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__margin-top",
+          "label": "Text block top position on desktop",
+          "min": 4,
+          "max": 400,
+          "step": 4,
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__margin-top-mobile",
+          "label": "Text block top position on mobile",
+          "min": 4,
+          "max": 400,
+          "step": 4,
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__width",
+          "label": "Width text",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__padding_right",
+          "label": "Space right",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__padding_left",
+          "label": "Space left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.rich-text-lined.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.rich-text-lined.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.rich-text-lined.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.rich-text-lined.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.rich-text-lined.settings.color_scheme.options__5.label"
+        },
+        {
+          "value": "background-4",
+          "label": "t:sections.rich-text-lined.settings.color_scheme.options__6.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.rich-text-lined.settings.color_scheme.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_line_top_position",
+      "default": "0",
+      "label": "Horizontal line top position desktop",
+      "info": "This option for move line line down",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 240
+    },
+    {
+      "type": "range",
+      "id": "horizontal_line_top_position_mobile",
+      "default": "0",
+      "label": "Horizontal line top position on mobile",
+      "info": "This option for move line line down on mobile",
+      "min": -300,
+      "max": 300,
+      "step": 6,
+      "default": -120
+    }
+  ], 
+  "presets": [
+    {
+      "name": "Rich text with line. 2 row -  4 columns",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+

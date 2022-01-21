@@ -1,0 +1,222 @@
+{{ 'component-cathegories-section.css' | asset_url | stylesheet_tag }}
+
+
+<div  class="cathegories-section {{ section.id }} color-{{ section.settings.color_scheme }}" style="background-color: {{ section.settings.color}};">
+  <div
+    class="page-width wrapper__content cathegories-section__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} cathegories-section__grid--reverse{% endif %}">
+
+    <div class="grid__item">
+
+      <div class="cathegories-section__content cathegories-section__content--{{ section.settings.height }}">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+
+        {%- when 'heading' -%}
+        <div class="title_row">
+          <h2 class="h2" {{ block.shopify_attributes }}>
+            {{ block.settings.heading | escape }}
+          </h2>
+        </div>
+
+        {%- when 'text' -%}
+        <div class="page-width"> 
+            <div class="cathegories-section__text rte" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+        </div>
+          
+
+            {%- when 'button' -%}
+            <div class="centered_row">
+            {% if block.settings.button_link != blank %}
+              <a {% if block.settings.button_link == blank %} aria-disabled="true" {% endif %}
+                href="{{ block.settings.button_link }}" class="button  {{ block.settings.button_style }} " {{
+                block.shopify_attributes }}>
+                {{ block.settings.button_label | escape }}
+              </a>
+            {% endif %}
+            {% if block.settings.button_2_link != blank %}
+              <a {% if block.settings.button_2_link == blank %} aria-disabled="true" {% endif %}
+                href="{{ block.settings.button_2_link }}" class="button {{ block.settings.button_2_style }}" {{
+                block.shopify_attributes }}>
+                {{ block.settings.button_2_label | escape }}
+              </a>
+            {% endif %}
+          </div>
+
+
+          <div class="category_row">
+          {%- when 'collections_icons' -%}
+            <a href="{{ block.settings.collection_icon_link }}" class="collections_icon">
+              <img src="{{ block.settings.collection_icon_image | img_url: '100x100' }}"
+                alt="{{ block.settings.image.alt | escape }}">
+              
+              <h4 class="h4">{{ block.settings.category_name }}</h4>
+            </a>
+            
+            {%- endcase -%}
+            {%- endfor -%}
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Cathegory Section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "default": "#fff",
+      "label": "t:sections.banner-and-story.settings.color_scheme.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.banner-and-story.blocks.heading.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.banner-and-story.blocks.text.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.banner-and-story.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.button.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "header",
+          "content": "First button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--tertiary",
+              "label": "Tartiary"
+            }
+          ],
+          "default": "button--primary",
+          "label": "t:sections.rich-text.settings.color_scheme.label"
+        },
+        {
+          "type": "header",
+          "content": "Second button"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "default": "Second button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_2_style",
+          "options": [
+            {
+              "value": "button--primary",
+              "label": "Primary"
+            },
+            {
+              "value": "button--secondary",
+              "label": "Secondary"
+            },
+            {
+              "value": "button--tertiary",
+              "label": "Tartiary"
+            }
+          ],
+          "default": "button--primary",
+          "label": "t:sections.rich-text.settings.color_scheme.label"
+        }
+      ]
+    },
+    {
+      "type": "collections_icons",
+      "name": "Collection category icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "collection_icon_image",
+          "label": "Icon"
+        },
+        {
+          "type": "url",
+          "id": "collection_icon_link",
+          "label": "Collection link"
+        },
+        {
+          "type": "text",
+          "id": "category_name",
+          "default": "Category",
+          "label": "Category name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cathegory Section",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

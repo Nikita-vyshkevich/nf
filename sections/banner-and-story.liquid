@@ -1,0 +1,348 @@
+{{ 'component-banner-and-story.css' | asset_url | stylesheet_tag }}
+
+<div class="banner-and-story  color-{{ section.settings.color_scheme }} empty-margin__{{ section.id }}">
+  <div class="page-width banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} banner-and-story__grid--reverse{% endif %}">
+    <div class="grid__item">
+      <div class="banner-and-story__media banner-and-story__media--{{ section.settings.height }} {% if section.settings.image != blank %}media{% else %}banner-and-story__media--placeholder placeholder{% endif %}"
+        {% if section.settings.height == 'adapt' and section.settings.image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%; margin-top: -{{ section.settings.banner_position }}%;"{% endif %}
+        
+      >
+        {%- if section.settings.image != blank -%}
+          <img
+            srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | img_url: '165x' }} 165w,{%- endif -%}
+              {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | img_url: '360x' }} 360w,{%- endif -%}
+              {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | img_url: '535x' }} 535w,{%- endif -%}
+              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
+              {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | img_url: '1070x' }} 1070w,{%- endif -%}
+              {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
+              {{ section.settings.image | img_url: 'master' }} {{ section.settings.image.width }}w"
+            src="{{ section.settings.image | img_url: '1500x' }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="banner-and-story__content banner-and-story__content--{{ section.settings.height }}">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+          
+            {%- when 'heading' -%}
+            <div class="title_row">
+              <h2 class="h1" {{ block.shopify_attributes }}>
+                {{ block.settings.heading | escape }}
+              </h2>
+            </div>
+          
+            {%- when 'text' -%}
+          <div class="row">
+            <hr class="vertical_line_{{ block.id }}">
+              {% style %}
+                hr.vertical_line_{{ block.id }} {
+                  border-left: solid 2px;
+                  width: 0;
+                  height: calc(100% + {{ section.settings.vertical_line_height }}px);
+                  border-color: {{ section.settings.line_color }}; 
+                  margin-left: {{ section.settings.vertical_line_margin_left }}%;
+                  margin-top: {{ section.settings.vertical_line_top_position }}px;
+
+                }
+                @media screen and (max-width: 950px) {
+                  hr.vertical_line_{{ block.id }} {
+                    margin-left: 24px;
+                    height: calc(60% + {{ section.settings.vertical_line_height_mobile }}px);
+                    position: absolute;
+                }
+              {% endstyle %}
+            
+            <div class="col-1_2">
+            <div class="col-vertical">
+              <div class="banner-and-story__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+
+                  <!-- Here is blog article section start  -->
+                  {%- when 'featured_posts' -%}
+                  <div class="mini__item mini__item--posts" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+
+                    <div class="mini__post-list">
+                      {%- assign show_placeholder = true -%}
+
+                      {%- for i in (1..5) -%}
+                        {%- assign article_option = 'article_' | append: i -%}
+                        {%- assign article = articles[block.settings[article_option]] -%}
+
+                        {%- unless article.empty? -%}
+                          <div class="mini__post-item">
+                            {%- if article.image -%}
+                              <div class="mini__post-image-wrapper">
+                                
+                                  <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}" alt="{{ article.image.alt | escape }}" class="mini__post-image">
+
+                              </div>
+                            {%- endif -%}
+
+                            <div class="mini__post-info">
+                              
+                              <h3 class="mini__post-title">{{ article.title }}</h3>
+                              <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+                              <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+
+                            </div>
+                          </div>
+
+                          {%- assign show_placeholder = false -%}
+                        {%- endunless -%}
+                      {%- endfor -%}
+
+                    </div>
+                  </div>
+                  <!-- Here is blog article section finish  -->
+            </div>
+          </div>
+            </div>  
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+.empty-margin__{{ section.id }} {
+  margin-top: calc({{ section.settings.banner_position }}% + {{ section.settings.section-padding-top }}px)!Important;
+}
+@media screen and (max-width: 750px) {
+  .empty-margin__{{ section.id }} {
+    margin-top: calc({{ section.settings.banner_position }}% + {{ section.settings.section-padding-top-mobile  }}px)!Important;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "t:sections.banner-and-story.name",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.banner-and-story.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "accent-1",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__5.label"
+        },
+        {
+          "value": "background-3",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__6.label"
+        },
+        {
+          "value": "background-4",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__7.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.banner-and-story.settings.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.banner-and-story.settings.layout.label",
+      "info": "t:sections.banner-and-story.settings.layout.info"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": -300,
+      "max": 300,
+      "step": 6,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": -300,
+      "max": 300,
+      "step": 6,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "banner_position",
+      "default": "0%",
+      "label": "Top image position (negative margin)",
+      "info": "This option for move image to top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height",
+      "default": "0",
+      "label": "Vertical line height",
+      "info": "This option for change vertical line height",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_top_position",
+      "default": "0",
+      "label": "Vertical line top position",
+      "info": "This option for move vertical line up",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_margin_left",
+      "default": "0",
+      "label": "Vertical line horizontal position",
+      "info": "This option for change vertical line horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height_mobile",
+      "default": "0",
+      "label": "Vertical line height on mobile",
+      "info": "This option for change vertical line height for mobile devices",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.banner-and-story.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Title of Story",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.banner-and-story.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Story Text.</p>",
+          "label": "t:sections.banner-and-story.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "featured_posts",
+      "name": "Blog posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.banner-and-story.presets.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "featured_posts"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

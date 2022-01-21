@@ -1,0 +1,161 @@
+{
+  "sections": {
+    "16420579076da666d4": {
+      "type": "carousel-collection-top",
+      "blocks": {
+        "16420579073b516344-0": {
+          "type": "product",
+          "settings": {
+            "cover_image": "shopify:\/\/shop_images\/Screen_Shot_2022-01-12_at_00.02.15.png",
+            "mobile_image": "shopify:\/\/shop_images\/Screen_Shot_2022-01-11_at_23.55.43.png",
+            "banner_title": "Ahhh.  Breathe & Relax",
+            "banner_text": "<p>Natural Factors' superior, fast-acting Stress-Relax products can help you cope with occasional and chronic stress, and promote sound, healthy sleep. These supplements provide a comprehensive approach for calmer living.<\/p>",
+            "button_label": "View Product",
+            "button_link": "shopify:\/\/products\/nf-ca-0-68958-02832-3",
+            "button_style": "button--primary"
+          }
+        }
+      },
+      "block_order": [
+        "16420579073b516344-0"
+      ],
+      "settings": {
+        "color": "#ffffff"
+      }
+    },
+    "16420589547ab468ae": {
+      "type": "title-text-button-image",
+      "blocks": {
+        "1642058954d24daf1b-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/stress-relax.png",
+            "img_width": 380
+          }
+        },
+        "1642058954d24daf1b-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Calming solutions to stress, anxiety, and insomnia.<\/p>"
+          }
+        },
+        "1642058954d24daf1b-3": {
+          "type": "button",
+          "settings": {
+            "button_label": "All Products",
+            "button_link": "shopify:\/\/collections",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "1642058954d24daf1b-0",
+        "1642058954d24daf1b-2",
+        "1642058954d24daf1b-3"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "16420597918e835775": {
+      "type": "carousel-featured-product",
+      "blocks": {
+        "1642059791251e500f-0": {
+          "type": "product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Featured.jpg",
+            "heading": "100% Natural  Gaba",
+            "text": "<p>Resilience is a quality we all need — especially now. Find you centre. Find your balance.<\/p><p>Natural Factors Gaba promotes deep relaxation and mental clarity.<\/p>",
+            "button_label": "Product Details",
+            "button_link": "shopify:\/\/products\/nf-ca-0-68958-02835-4",
+            "button_style": "button--primary",
+            "iproduct_image": "shopify:\/\/shop_images\/gaba100_copy.png"
+          }
+        }
+      },
+      "block_order": [
+        "1642059791251e500f-0"
+      ],
+      "settings": {
+        "color": "#0279a8"
+      }
+    },
+    "1642106240a7f704e8": {
+      "type": "rich-text-line-left-colored",
+      "blocks": {
+        "164210624087182337-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading": "We all experience stress of one kind or another."
+          }
+        },
+        "164210624087182337-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Natural Factors' superior, fast-acting Stress-Relax products can help you cope with occasional and chronic stress, and promote sound, healthy sleep. These supplements provide a comprehensive approach for calmer living.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "164210624087182337-0",
+        "164210624087182337-1"
+      ],
+      "settings": {
+        "color_background": "#0279a8",
+        "color_text": "#ffffff",
+        "section-padding-top": 0,
+        "section-padding-top-mobile": 0,
+        "rich-text-lined__margin-top": 111,
+        "rich-text-lined__margin-top-mobile": 30,
+        "line_color": "#014683",
+        "vertical_line_height_mobile": 534
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "collapse_on_larger_devices": false
+      }
+    },
+    "16385536194b94fb36": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Feautured Articles",
+        "blog": "immune-health",
+        "post_limit": 3,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "soft_background": false,
+        "show_view_all": true
+      }
+    }
+  },
+  "order": [
+    "16420579076da666d4",
+    "16420589547ab468ae",
+    "16420597918e835775",
+    "1642106240a7f704e8",
+    "banner",
+    "product-grid",
+    "16385536194b94fb36"
+  ]
+}

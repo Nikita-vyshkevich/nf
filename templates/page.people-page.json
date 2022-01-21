@@ -1,0 +1,254 @@
+{
+  "sections": {
+    "164201727991223687": {
+      "type": "page-title",
+      "blocks": {
+        "16420172791a907974-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "WE CARE ABOUT",
+            "heading_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "16420172791a907974-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "1642017885017a2cc6": {
+      "type": "banner-2-col-text",
+      "blocks": {
+        "1642017885dce044de-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pay it Forward"
+          }
+        },
+        "1642017885dce044de-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Oh, to be young again! Without a doubt, our future is in the hands of our children.  We cherish the privilege of helping children to experience and explore the natural world around them and to develop their own values about sustainable living.  To that end, we are proud supporters of the Plant a Seed & See What Grows Foundation.<\/p>",
+            "code_1": "",
+            "text_2": "<p>The Foundation’s purpose is to create opportunities for children to experience first-hand how the earth nurtures and cares for us.  They sponsor visits to farms, they promote community and container gardening, and they work with schools across the country to teach students how to eat healthy and to live in harmony with the natural world.  <\/p>",
+            "code_2": "<div class=\"buttons_wrapper\">\n<a class=\"button button--secondary\" src=\"#\">\nVISIT  Plant-a-seed\n<\/a> <a class=\"button button--primary\" src=\"#\" style=\"color: white;\">\nDonate today\n<\/a>\n<\/div>\n<style>\n.button {\nmargin: 20px 20px;\n}\n.button:first-child {\nmargin-left: 0;\n}\n.buttons_wrapper {\ndisplay: flex;\nflex-direction: row;\n}\n\n@media screen and (max-width: 950px) {\n.button {\nmargin: 20px auto;\nwidth: 100%;\n}\n\n.buttons_wrapper {\ndisplay: flex;\nflex-direction: column;\njustify-content: center;\nmargin-left: -55px\n}\n\n}\n\n<\/style>"
+          }
+        },
+        "1642017885dce044de-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "1642017885dce044de-0",
+        "1642017885dce044de-1",
+        "1642017885dce044de-2"
+      ],
+      "settings": {
+        "color_background": "#007b38",
+        "color_text": "#ffffff",
+        "cover_image": "shopify:\/\/shop_images\/people.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "line_color": "#09a952",
+        "vertical_line_height": 100,
+        "vertical_line_top_position": -32,
+        "vertical_line_margin_left": 45,
+        "vertical_line_height_mobile": 114
+      }
+    },
+    "1642017881645f2089": {
+      "type": "citation-colored",
+      "blocks": {
+        "16420178817d861110-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>“Teach a child to plant a seed while they’re still open to learning, and see what grows.”<\/p>"
+          }
+        },
+        "16420178817d861110-2": {
+          "type": "heading",
+          "settings": {
+            "heading": "Roland Gahler, Owner and Founder",
+            "who-is": ""
+          }
+        }
+      },
+      "block_order": [
+        "16420178817d861110-1",
+        "16420178817d861110-2"
+      ],
+      "settings": {
+        "color_background": "#007b38",
+        "color_text": "#ffffff",
+        "section-padding-top": 0,
+        "section-padding-bottom": 0,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom-mobile": 0
+      }
+    },
+    "164202023891699d56": {
+      "type": "rich-text-line-right",
+      "blocks": {
+        "164202023843ef02b3-0": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Where would we be without you, our customers?  You enable us to express our deep care for people and our planet.  We are connected because we care about the same things.  From small things like backyard gardens to big things like cleaning our beaches and saying goodbye to plastics.  The future is brighter because we are all doing what we can to make a difference.<\/p>"
+          }
+        },
+        "164202023843ef02b3-1": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading": "You — Our Customer"
+          }
+        },
+        "164202023843ef02b3-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": "immune-health\/the-human-touch"
+          }
+        }
+      },
+      "block_order": [
+        "164202023843ef02b3-0",
+        "164202023843ef02b3-1",
+        "164202023843ef02b3-2"
+      ],
+      "settings": {
+        "section-padding-top": 9,
+        "section-padding-top-mobile": 20,
+        "rich-text-lined__margin-top": 93,
+        "rich-text-lined__margin-top-mobile": 27,
+        "line_color": "#09a952",
+        "horizontal_line_top_position": 270,
+        "horizontal_line_top_position_mobile": 240
+      }
+    },
+    "164202045077ea68c2": {
+      "type": "banner-2-col-text",
+      "blocks": {
+        "41944cd5-abc9-4d14-a1a5-9aafb12a483f": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vitamin angel"
+          }
+        },
+        "1642020450b1d0b7b3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everyone deserves a chance at a healthy life.  Since 2007 our work with Vitamin Angels has sought out the most vulnerable and often overlooked: pregnant women, infants, and children who live in marginalized areas of the world.  <\/p>",
+            "code_1": "",
+            "text_2": "<p>Our bodies rely on vitamin A for many purposes, all of which are essential for day-to-day activities and long-term health. When a child lacks this nutrient during the early stages of development, they can get sick, go blind and even die. Our partnership with Vitamin Angels allows us to reach over 4 million children with vitamin A annually.  <\/p>",
+            "code_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "41944cd5-abc9-4d14-a1a5-9aafb12a483f",
+        "1642020450b1d0b7b3-1"
+      ],
+      "settings": {
+        "color_background": "#007b38",
+        "color_text": "#ffffff",
+        "cover_image": "shopify:\/\/shop_images\/vita.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "line_color": "#05c15b",
+        "vertical_line_height": 0,
+        "vertical_line_top_position": -64,
+        "vertical_line_margin_left": 34,
+        "vertical_line_height_mobile": 24
+      }
+    },
+    "1642020943869aaf71": {
+      "type": "citation-colored",
+      "blocks": {
+        "16420209438d575021-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Some do only what they have to do, but we do all that we can do.<\/p>"
+          }
+        },
+        "16420209438d575021-2": {
+          "type": "heading",
+          "settings": {
+            "heading": "Roland Gahler, Owner & Founder",
+            "who-is": ""
+          }
+        }
+      },
+      "block_order": [
+        "16420209438d575021-1",
+        "16420209438d575021-2"
+      ],
+      "settings": {
+        "color_background": "#007b38",
+        "color_text": "#ffffff",
+        "section-padding-top": 0,
+        "section-padding-bottom": 0,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom-mobile": 0
+      }
+    },
+    "16420209993c1d7dea": {
+      "type": "title-text-button",
+      "blocks": {
+        "16420209992832fa9b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Making a Difference",
+            "heading_size": "h0"
+          }
+        },
+        "16420209992832fa9b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Caring about people comes naturally to everyone.  But, with the complex and busy lives we lead it often requires ongoing and purposeful effort.  At Natural Factors it is our privilege to find creative and meaningful ways to show people we care.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16420209992832fa9b-0",
+        "16420209992832fa9b-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "164202107680123a18": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Blog posts",
+        "blog": "immune-health",
+        "post_limit": 3,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "soft_background": false,
+        "show_view_all": true
+      }
+    }
+  },
+  "order": [
+    "164201727991223687",
+    "main",
+    "1642017885017a2cc6",
+    "1642017881645f2089",
+    "164202023891699d56",
+    "164202045077ea68c2",
+    "1642020943869aaf71",
+    "16420209993c1d7dea",
+    "164202107680123a18"
+  ]
+}

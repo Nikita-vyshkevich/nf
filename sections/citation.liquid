@@ -1,0 +1,207 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-citation.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-citation.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="centered--section color-{{ section.settings.color_scheme }}" >
+  <div class="citation {% if section.settings.full_width %} citation--full-width{% endif %} empty-margin__{{ section.id }}">
+    <div class="citation__blocks citation__our__nature">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+         
+          {%- when 'title' -%} 
+          <h3 class="{{ section.id }} h3 citation__title">{{ block.settings.heading-title }}</h3>
+          
+          {%- when 'text' -%} 
+          <div class="citation__text_wrapper"> 
+            <div class="{{ section.id }} citation__text rte " {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+          </div>
+
+          {%- when 'heading' -%}
+            <h6 class="{{ section.id }} citation__author color-{{ section.settings.color_scheme }}" {{ block.shopify_attributes }}>
+              {{ block.settings.heading | escape }}
+              <br/>
+              {{ block.settings.who-is | escape }}
+            </h6>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  console.log( {{ section.settings.color_scheme }} );
+</script>
+
+{% style %}
+.{{ section.id }}.citation__text > p,
+.{{ section.id }}.citation__title,
+.{{ section.id }}.citation__author {
+  color: {{ section.settings.color_text }}
+}
+
+
+.empty-margin__{{ section.id }} {
+  margin-top: {{ section.settings.section-padding-top }}px;
+  margin-bottom: {{ section.settings.section-padding-bottom }}px;
+  padding-top: {{ section.settings.section-padding-top }}px;
+  padding-bottom: {{ section.settings.section-padding-bottom }}px;
+}
+@media screen and (max-width: 750px) {
+  .empty-margin__{{ section.id }} {
+    margin-top: {{ section.settings.section-padding-top-mobile }}px;
+    margin-bottom: {{ section.settings.section-padding-bottom-mobile }}px;
+    padding-top: {{ section.settings.section-padding-top-mobile }}px;
+    padding-bottom: {{ section.settings.section-padding-bottom-mobile }}px;
+  }
+}
+{% endstyle %}
+
+
+{% schema %}
+{
+  "name": "Citation",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.rich-text.settings.color_scheme.options__5.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.rich-text.settings.color_scheme.label"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Color text",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom",
+      "label": "Section bottom position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom-mobile",
+      "label": "Section bottom position on mobile",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading-title",
+          "label": "title"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Author",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Author",
+          "label": "Author's name"
+        },
+        {
+          "type": "text",
+          "id": "who-is",
+          "default": "Owner",
+          "label": "Autor's position"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Citation",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Yinelenen bir sayfa içeriğinin okuyucunun dikkatini dağıttığı bilinen bir gerçektir. Lorem Ipsum kullanmanın amacı, sürekli 'buraya metin gelecek, buraya metin gelecek' yazmaya kıyasla daha dengeli bir harf dağılımı sağlayarak okunurluğu artırmasıdır.</p>",
+          "label": "Citation"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Citation",
+      "blocks": [
+        {
+          "type": "title"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "heading"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+

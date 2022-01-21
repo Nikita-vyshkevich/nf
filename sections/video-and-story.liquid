@@ -1,0 +1,516 @@
+{{ 'component-banner-and-story.css' | asset_url | stylesheet_tag }}
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} empty-margin__{{ section.id }}">
+
+  {% style %}
+    .empty-margin__{{ section.id }} {
+      margin-top: calc({{ section.settings.banner_position }}% + {{ section.settings.section-padding-top }}px)!Important;
+      margin-bottom: 400px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .empty-margin__{{ section.id }} {
+        margin-top: calc({{ section.settings.banner_position }}% + {{ section.settings.section-padding-top-mobile  }}px)!Important;
+      }
+    }
+
+    @media screen and (min-width: 950px) {
+      .empty-margin__{{ section.id }} {
+        margin-bottom: 0;
+        padding-bottom: 100px;
+        }
+    }
+
+    @media screen and (min-width: 1900px) {
+      .empty-margin__{{ section.id }} {
+        margin-bottom: 0;
+      }
+    }
+  {% endstyle %}
+
+  <div class="page-width banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} banner-and-story__grid--reverse{% endif %}">
+    <div class="grid__item">
+      <!-- Start grid item  -->
+      <div class="banner-and-story__media" {% if section.settings.cover_image != blank %} style="margin-top: -{{ section.settings.banner_position }}%;"{% endif %}>
+
+        <div{% if section.settings.full_width %} class="page-width"{% endif %}>
+          <h2 class="title">{{ section.settings.heading }}</h2>
+        </div>
+        <noscript>
+          <div class="video-section__media"
+            {% if section.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.cover_image.aspect_ratio | times: 100 }}%;" {% endif %}
+          >
+            <a href="{{ section.settings.video_url }}" class="video-section__poster media media--transparent media--landscape{% if section.settings.cover_image == blank %} video-section__placeholder{% endif %}">
+              
+              {%- if section.settings.cover_image != blank -%}
+                <img
+                  srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                    {{ section.settings.cover_image | img_url: 'master' }} {{ section.settings.cover_image.width }}w"
+                  src="{{ section.settings.cover_image | img_url: '1920x' }}"
+                  sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                  alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                  loading="lazy"
+                  width="{{ section.settings.cover_image.width }}"
+                  height="{{ section.settings.cover_image.height }}"
+                >
+              {%- else -%}
+                {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+              {%- endif -%}
+            </a>
+          </div>
+        </noscript>
+        <deferred-media class="video-section__media deferred-media no-js-hidden" data-media-id="{{ section.settings.video_url.id }}"
+          {% if section.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.cover_image.aspect_ratio | times: 100 }}%;"{% endif %}
+        >
+          <button
+            id="Deferred-Poster-Modal-{{ section.settings.video_url.id }}"
+            class="video-section__poster media deferred-media__poster media--landscape"
+            type="button"
+          >
+            {%- if section.settings.cover_image != blank -%}
+              <img
+                srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                  {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                  {{ section.settings.cover_image | img_url: 'master' }} {{ section.settings.cover_image.width }}w"
+                src="{{ section.settings.cover_image | img_url: '1920x' }}"
+                sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                loading="lazy"
+                width="{{ section.settings.cover_image.width }}"
+                height="{{ section.settings.cover_image.height }}"
+              >
+            {%- else -%}
+              {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+            {%- endif -%}
+            <span class="deferred-media__poster-button motion-reduce">
+              {%- render 'icon-play' -%}
+            </span>
+          </button>
+          <template>
+            {%- if section.settings.video_url.type == 'youtube' -%}
+              <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+            {%- else -%}
+              <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+            {%- endif -%}
+          </template>
+        </deferred-media>
+      </div>
+      <!-- End of grid item  -->
+    </div>
+  </div>
+    
+    
+    <div class="page-width wrapper__content video-and-story-content banner-and-story__content--{{ section.settings.height }} desk-row__mobile-col grid_2_col" >
+
+      <hr class="vertical_line_mobile_1_{{ section.id }} show-on-mobile">
+          {% style %}
+            @media screen and (max-width: 950px) {
+                hr.vertical_line_mobile_1_{{ section.id }} {
+                  border-left: solid 2px;
+                  width: 0;
+                  border-color: {{ section.settings.line_color }}; 
+                  position: absolute;
+                  margin-top: 160px;
+                  margin-left: 24px;
+              }
+          {% endstyle %}  
+
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+
+
+            {%- when 'heading' -%}
+            <div class="col-1_2">
+              <h2 class="video-and-story__heading h1" {{ block.shopify_attributes }}>
+                {{ block.settings.heading | escape }}
+              </h2>
+            </div>
+          
+            <div class="col-1_2">
+              <hr class="vertical_line_{{ block.id }} show-on-desktop">
+              {% style %}
+                hr.vertical_line_{{ block.id }} {
+                  border-left: solid 2px;
+                  width: 0;
+                  height: calc(100% + {{ section.settings.vertical_line_height }}px);
+                  border-color: {{ section.settings.line_color }}; 
+                  margin-left: {{ section.settings.vertical_line_margin_left }}%;
+                  margin-top: {{ section.settings.vertical_line_top_position }}px;
+                }
+              {% endstyle %}
+            </div>  
+                
+            
+            {%- when 'text' -%}
+              <div class="col-1_2">
+                <div class="video-and-story__text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+              </div> 
+              <div class="col-1_2 lower_col_{{ block.id }}">
+                <div class="video-and-story__text rte" {{ block.shopify_attributes }}>{{ block.settings.text_2 }}</div>
+
+                {% style %}
+                  .lower_col_{{ block.id }} {
+                    padding-top:  0px;
+                  }
+                  .lower_col_{{ block.id }} .video-and-story__text {
+                    margin-bottom: 0px;
+                  }
+                  
+                @media screen and (min-width: 950px) {
+                  .lower_col_{{ block.id }} {
+                    padding-top: {{ section.settings.vertical_line_height }}px;
+                  }
+                  .lower_col_{{ block.id }} .video-and-story__text {
+                    margin-bottom: -150px;
+                  }
+                }
+              {% endstyle %}
+              </div> 
+
+                <div class="col-1_2"> 
+                    <!-- Here is blog article section start  -->
+                      {%- when 'featured_posts' -%}
+                      {%- if block.settings.article_1 != blank -%}
+                          <div class=" mini__item mini__item--posts mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{ block.shopify_attributes }} >
+                            <div class="mini__post-list">
+                              {%- assign show_placeholder = true -%}
+                              {%- for i in (1..5) -%}
+                                {%- assign article_option = 'article_' | append: i -%}
+                                {%- assign article = articles[block.settings[article_option]] -%}
+                                {%- unless article.empty? -%}
+                                  <div class="mini__post-item">
+                                    {%- if article.image -%}
+                                      <div class="mini__post-image-wrapper">
+                                          <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}" alt="{{ article.image.alt | escape }}" class="mini__post-image">
+                                      </div>
+                                    {%- endif -%}
+                                    <div class="mini__post-info">
+                                      <h3 class="mini__post-title">{{ article.title }}</h3>
+                                      <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+                                      <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+                                    </div>
+                                  </div>
+                                  {%- assign show_placeholder = false -%}
+                                {%- endunless -%}
+                              {%- endfor -%}
+                            </div>
+                          {% style %}
+                          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+                                  margin-top: 0;
+                                  margin-bottom: -400px!Important;
+                                  margin-left: auto;
+                                  margin-right: auto;
+                                }    
+
+                            @media screen and (min-width: 950px) {
+                              .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+                                  margin-bottom: -0px!Important;
+                                  margin-left: 0;
+                                  margin-right: auto;
+                                  padding-top: 0;
+                                }
+                              }
+
+                            @media screen and (min-width: 1900px) {
+                              .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+                                  margin-left: 0;
+                                  margin-right: auto;
+                                  padding-top: 0;
+                              }
+                            }
+                          {% endstyle %}
+                      </div>
+                    {% endif %}
+                    <!-- Here is blog article section finish  -->
+                    {%- if block.settings.article_1 != blank -%}
+                    <hr class="vertical_line_mobile_2_{{ section.id }} show-on-desktop">
+                    {% endif %}
+                    {% style %}
+                      @media screen and (min-width: 750px) {
+                          hr.vertical_line_mobile_2_{{ section.id }} {
+                            border-color: {{ section.settings.line_color }}; 
+                            border-left: solid 2px;
+                            width: 0;
+                            border-color: {{ section.settings.line_color }}; 
+                            position: absolute;
+                            margin-top: -20px;
+                            margin-left: 290px;
+                            height: 200px;
+                        }
+                    {% endstyle %}
+                </div>        
+        
+ 
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+</div>
+
+
+<script>
+  window.addEventListener("load", function() {
+    let box = document.querySelector('.video-and-story-content');
+    let heightBox = box.clientHeight;
+    let sectionID = '{{ section.id }}';
+    let heightOption = '{{ section.settings.vertical_line_height_mobile }}'
+    let line = document.getElementsByClassName('vertical_line_mobile_1_' + sectionID)[0];
+    line.style.height = Number(heightBox) + Number(heightOption) + 'px';
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Video and story",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.banner-and-story.settings.image.label"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ],
+      "default": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+      "label": "t:sections.video.settings.video_url.label",
+      "placeholder": "t:sections.video.settings.video_url.placeholder",
+      "info": "t:sections.video.settings.video_url.info"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "accent-1",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__5.label"
+        },
+        {
+          "value": "background-3",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__6.label"
+        },
+        {
+          "value": "background-4",
+          "label": "t:sections.banner-and-story.settings.color_scheme.options__7.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.banner-and-story.settings.color_scheme.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.banner-and-story.settings.layout.label",
+      "info": "t:sections.banner-and-story.settings.layout.info"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": -300,
+      "max": 300,
+      "step": 6,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": -300,
+      "max": 300,
+      "step": 6,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "banner_position",
+      "default": "0%",
+      "label": "Top image position (negative margin)",
+      "info": "This option for move image to top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height",
+      "default": "0",
+      "label": "Vertical line height",
+      "info": "This option for change vertical line height",
+      "min": 0,
+      "max": 1000,
+      "step": 10,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_top_position",
+      "default": "0",
+      "label": "Vertical line top position on desktop",
+      "info": "This option for move vertical line up",
+      "min": -200,
+      "max": 200,
+      "step": 4,
+      "default": -28
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_margin_left",
+      "default": "0",
+      "label": "Vertical line horizontal position",
+      "info": "This option for change vertical line horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height_mobile",
+      "default": "0",
+      "label": "Vertical line height on mobile",
+      "info": "This option for change vertical line height for mobile devices. ",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.banner-and-story.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Title of Story",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.banner-and-story.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Story Text.</p>",
+          "label": "First column text"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "default": "<p>Story Text.</p>",
+          "label": "Second column text"
+        }
+      ]
+    },
+    {
+      "type": "featured_posts",
+      "name": "Blog posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video and story",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "featured_posts"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

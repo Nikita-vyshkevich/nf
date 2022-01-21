@@ -1,0 +1,22 @@
+.components-banner__media img {
+  width: 100%;
+  height: auto;
+}
+
+.components-banner__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.components-banner__buttons > .button {
+ margin-top: -200px;
+}
+
+.title__components,
+.text__components {
+  text-align: center;
+}
+
+.components-banner__box {
+  margin-top: 100px;
+}

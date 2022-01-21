@@ -1,0 +1,894 @@
+{
+  "sections": {
+    "164183725220393f6a": {
+      "type": "page-title",
+      "blocks": {
+        "1641837252e4a237e2-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "This is default template",
+            "heading_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "1641837252e4a237e2-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "1641643854735a2c77": {
+      "type": "flexy-col-video-banner",
+      "disabled": true,
+      "blocks": {
+        "1641643854bf7dae89-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem Ipsum",
+            "heading_vertical_line_height": 10,
+            "heading_vertical_line_margin_left": 50
+          }
+        },
+        "1641643854bf7dae89-4": {
+          "type": "empty_block",
+          "settings": {
+            "empty_block_height": 260
+          }
+        },
+        "1641643854bf7dae89-1": {
+          "type": "text",
+          "settings": {
+            "before_text_line_height": 10,
+            "before_text_line_margin_left": 50,
+            "code_1": "",
+            "text": "<p>We get it.  You need to know that your vitamins and supplements are safe and pure.  We feel the same way.  After all, we take these products too.  Day in and day out we do all that we can to earn your trust and deliver products that are safe and pure for us all.<\/p>",
+            "code_2": "",
+            "bafter_text_line_height": 10,
+            "after_text_line_margin_left": 50
+          }
+        },
+        "d136ee5f-cb5b-4ac1-8e61-51c16e1c1ec8": {
+          "type": "text",
+          "settings": {
+            "before_text_line_height": 10,
+            "before_text_line_margin_left": 50,
+            "code_1": "",
+            "text": "<p>Our products offer consumers superior science-backed quality, potency, and effectiveness. Organic farming, in-house research and development, and strict adherence to Good Manufacturing Practices (GMP) and Good Laboratory Practices (GLP) are all components of the total quality control used to produce Natural Factors products. <\/p><p>Here are just some of the steps we take to ensure that our products are safe for you and your family.<\/p>",
+            "code_2": "",
+            "bafter_text_line_height": 10,
+            "after_text_line_margin_left": 50
+          }
+        },
+        "1641643854bf7dae89-3": {
+          "type": "vertical_line",
+          "settings": {
+            "vertical_line_height": 390,
+            "vertical_line_top_position": -8,
+            "vertical_line_margin_left": 50
+          }
+        }
+      },
+      "block_order": [
+        "1641643854bf7dae89-0",
+        "1641643854bf7dae89-4",
+        "1641643854bf7dae89-1",
+        "d136ee5f-cb5b-4ac1-8e61-51c16e1c1ec8",
+        "1641643854bf7dae89-3"
+      ],
+      "settings": {
+        "color_background": "#fc5f5f",
+        "color_text": "#000000",
+        "line_color": "#ffe893",
+        "cover_image": "shopify:\/\/shop_images\/placeholder.png",
+        "video_url": "",
+        "height": "small",
+        "layout": "image_first",
+        "vertical_line_height_mobile": 72
+      }
+    },
+    "164175048689e99133": {
+      "type": "rich-text-line-right",
+      "disabled": true,
+      "blocks": {
+        "164175048653c75ebd-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information aQuality vitamins and supplements begin with quality ingredients.  Therefore, it is only natural that our approach to product safety and quality starts with farmers and suppliers, and continues up the entire supply chain. We use ingredients that are sourced from the world’s most trusted suppliers, going to great lengths to source high quality ingredients that comply with our strict ingredients policy. <\/p><p>All ingredients are extensively tested before they are accepted for use in our products. We insist on verifying the identity, potency, and purity of each ingredient listed on our product labels.bout your brand.<\/p>"
+          }
+        },
+        "164175048653c75ebd-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading": "Lorem Ipsum orem Ipsum"
+          }
+        },
+        "73becefe-a9bc-479a-bd7d-5cf57196b12d": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": "immune-health\/the-human-touch"
+          }
+        }
+      },
+      "block_order": [
+        "164175048653c75ebd-1",
+        "164175048653c75ebd-0",
+        "73becefe-a9bc-479a-bd7d-5cf57196b12d"
+      ],
+      "settings": {
+        "section-padding-top": 0,
+        "section-padding-top-mobile": 0,
+        "rich-text-lined__margin-top": 30,
+        "rich-text-lined__margin-top-mobile": 30,
+        "line_color": "#ffc900",
+        "horizontal_line_top_position": 360,
+        "horizontal_line_top_position_mobile": 300
+      }
+    },
+    "16394917731f1a15d1": {
+      "type": "banner-2-col-text",
+      "blocks": {
+        "163949177378f9bd91-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pay it Forward"
+          }
+        },
+        "163949177378f9bd91-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Oh, to be young again! Without a doubt, our future is in the hands of our children.  We cherish the privilege of helping children to experience and explore the natural world around them and to develop their own values about sustainable living.  To that end, we are proud supporters of the Plant a Seed & See What Grows Foundation.<\/p>",
+            "code_1": "",
+            "text_2": "<p>The Foundation’s purpose is to create opportunities for children to experience first-hand how the earth nurtures and cares for us.  They sponsor visits to farms, they promote community and container gardening, they work with schools across the country to teach students how to eat healthy and to live in harmony with the natural world.  <\/p>",
+            "code_2": ""
+          }
+        },
+        "163949177378f9bd91-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "163949177378f9bd91-0",
+        "163949177378f9bd91-1",
+        "163949177378f9bd91-2"
+      ],
+      "settings": {
+        "color_background": "#f62d2d",
+        "color_text": "#ffffff",
+        "cover_image": "shopify:\/\/shop_images\/placeholder.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "line_color": "#ffffff",
+        "vertical_line_height": 100,
+        "vertical_line_top_position": -28,
+        "vertical_line_margin_left": 14,
+        "vertical_line_height_mobile": 0
+      }
+    },
+    "164166498934ac4d9c": {
+      "type": "banner-flexy-col",
+      "disabled": true,
+      "blocks": {
+        "16416649899182c42b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Clean Manufacturing",
+            "heading_vertical_line_height": 10,
+            "heading_vertical_line_margin_left": 50
+          }
+        },
+        "16416649899182c42b-4": {
+          "type": "empty_block",
+          "settings": {
+            "empty_block_height": 0
+          }
+        },
+        "16416649899182c42b-1": {
+          "type": "text",
+          "settings": {
+            "padding_top": 10,
+            "text_line_color": "#000000",
+            "before_text_line_height": 10,
+            "before_text_line_margin_left": 50,
+            "code_1": "",
+            "text": "<p>All of our facilities are designed according to precise requirements that ensure a clean and safe water supply, state-of-the-art air filtration, and dedicated processes to prevent cross-contamination. <\/p><p>Our dedication to clean manufacturing processes mean  that every Natural Factors product provides known, consistent, health benefits based on researched and measurable levels of known therapeutic nutrients and botanicals.<\/p>",
+            "code_2": "",
+            "bafter_text_line_height": 10,
+            "after_text_line_margin_left": 50,
+            "padding_bottom": 10
+          }
+        },
+        "5f29c187-12e1-4716-afa5-f72446ce2a9a": {
+          "type": "text",
+          "settings": {
+            "padding_top": 10,
+            "text_line_color": "#000000",
+            "before_text_line_height": 10,
+            "before_text_line_margin_left": 50,
+            "code_1": "",
+            "text": "<p>Ensuring our ingredients stay clean until they reach your shelf is essential.  That is why we are one of the very few in our industry to insist on controlling the manufacturing process from start to finish. <\/p>",
+            "code_2": "",
+            "bafter_text_line_height": 10,
+            "after_text_line_margin_left": 50,
+            "padding_bottom": 10
+          }
+        },
+        "16416649899182c42b-3": {
+          "type": "vertical_line",
+          "settings": {
+            "vertical_line_height": 270,
+            "vertical_line_top_position": -28,
+            "vertical_line_margin_left": 50
+          }
+        }
+      },
+      "block_order": [
+        "16416649899182c42b-0",
+        "16416649899182c42b-4",
+        "16416649899182c42b-1",
+        "5f29c187-12e1-4716-afa5-f72446ce2a9a",
+        "16416649899182c42b-3"
+      ],
+      "settings": {
+        "color_background": "#0279a8",
+        "color_text": "#ffffff",
+        "line_color": "#ffe480",
+        "cover_image": "shopify:\/\/shop_images\/Bitmap1111.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "vertical_line_height_mobile": 18,
+        "banner_title": "Softgel Manufacturing",
+        "banner_text": "Sometimes doing it right means doing it yourself.",
+        "button_label": "READ OUR STORY",
+        "button_link": "#",
+        "button_type": "button--primary"
+      }
+    },
+    "1641750772499f1286": {
+      "type": "rich-text-line-right",
+      "disabled": true,
+      "blocks": {
+        "16417507728a3fe566-0": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are obsessive about testing.  We have so many stringent, inbuilt controls to guarantee safety, that by the time we reach the final testing stages, we’re already extremely confident that the finished product is completely safe.<\/p><p>We use powerful analytical methods, advanced analytical tools,  the latest detection technologies, and explore novel digital tools to help drive our quality control and assurance programs.  While the industry average is only one or two rounds of internal testing, our in-house laboratories enable us to conduct four rounds of testing!  <\/p><p>When it comes to your safety we leave nothing to chance. <\/p>"
+          }
+        },
+        "16417507728a3fe566-1": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading": "Testing Standards"
+          }
+        }
+      },
+      "block_order": [
+        "16417507728a3fe566-0",
+        "16417507728a3fe566-1"
+      ],
+      "settings": {
+        "section-padding-top": 6,
+        "section-padding-top-mobile": 0,
+        "rich-text-lined__margin-top": 30,
+        "rich-text-lined__margin-top-mobile": 30,
+        "line_color": "#ffc900",
+        "horizontal_line_top_position": 312,
+        "horizontal_line_top_position_mobile": 198
+      }
+    },
+    "1641756044aa1774d3": {
+      "type": "banner-picture",
+      "disabled": true,
+      "settings": {
+        "color_background": "#ffffff",
+        "cover_image": "shopify:\/\/shop_images\/placeholder.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "vertical_line_height_mobile": 0,
+        "banner_title": "Some title here",
+        "banner_text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_type": "button--primary"
+      }
+    },
+    "164167398129bf1c9b": {
+      "type": "citation",
+      "disabled": true,
+      "blocks": {
+        "16416739815886ca28-0": {
+          "type": "title",
+          "settings": {
+            "heading-title": ""
+          }
+        },
+        "16416739815886ca28-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>“We have always insisted on pharmaceutical standards for all our raw materials and products. If we can’t guarantee 100% safe, pure, and potent raw materials for a formula, we won’t make that product. It’s that simple.” <\/p>"
+          }
+        },
+        "16416739815886ca28-2": {
+          "type": "heading",
+          "settings": {
+            "heading": "Michael Hobson, President & CEO",
+            "who-is": ""
+          }
+        }
+      },
+      "block_order": [
+        "16416739815886ca28-0",
+        "16416739815886ca28-1",
+        "16416739815886ca28-2"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "color_text": "#000000",
+        "section-padding-top": 0,
+        "section-padding-bottom": 0,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom-mobile": 0
+      }
+    },
+    "1639493150bcb1905e": {
+      "type": "banner-2-col-text",
+      "disabled": true,
+      "blocks": {
+        "1639493150169cc656-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem Ipsum"
+          }
+        },
+        "1639493150169cc656-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
+            "code_1": "",
+            "text_2": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
+            "code_2": ""
+          }
+        },
+        "1639493150169cc656-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "1639493150169cc656-0",
+        "1639493150169cc656-1",
+        "1639493150169cc656-2"
+      ],
+      "settings": {
+        "color_background": "#121212",
+        "color_text": "#ffffff",
+        "cover_image": "shopify:\/\/shop_images\/placeholder.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "line_color": "#ffffff",
+        "vertical_line_height": 100,
+        "vertical_line_top_position": -104,
+        "vertical_line_margin_left": 20,
+        "vertical_line_height_mobile": 0
+      }
+    },
+    "1639493309fb2c29a8": {
+      "type": "citation-colored",
+      "disabled": true,
+      "blocks": {
+        "1639493309e0ac8392-0": {
+          "type": "title",
+          "settings": {
+            "heading-title": ""
+          }
+        },
+        "1639493309e0ac8392-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Some do only what they have to do, but we do all that we can do.<\/p>"
+          }
+        },
+        "1639493309e0ac8392-2": {
+          "type": "heading",
+          "settings": {
+            "heading": "Roland Gahler, Owner & Founder",
+            "who-is": ""
+          }
+        }
+      },
+      "block_order": [
+        "1639493309e0ac8392-0",
+        "1639493309e0ac8392-1",
+        "1639493309e0ac8392-2"
+      ],
+      "settings": {
+        "color_background": "#121212",
+        "color_text": "#ffffff",
+        "section-padding-top": 0,
+        "section-padding-bottom": 0,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom-mobile": 0
+      }
+    },
+    "1641751773d5662779": {
+      "type": "rich-text-line-left",
+      "disabled": true,
+      "blocks": {
+        "1641751773ac03841e-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading": "Lorem Ipsum"
+          }
+        },
+        "1641751773ac03841e-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>"
+          }
+        },
+        "1641751773ac03841e-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "1641751773ac03841e-0",
+        "1641751773ac03841e-1",
+        "1641751773ac03841e-2"
+      ],
+      "settings": {
+        "color_background": "#fff",
+        "color_text": "#000",
+        "section-padding-top": 6,
+        "section-padding-top-mobile": 5,
+        "rich-text-lined__margin-top": 162,
+        "rich-text-lined__margin-top-mobile": 30,
+        "line_color": "#ffc900",
+        "horizontal_line_top_position": 240,
+        "horizontal_line_top_position_mobile": 270
+      }
+    },
+    "16417645341289d9fa": {
+      "type": "banner-flexy-col",
+      "disabled": true,
+      "blocks": {
+        "1641764533aaa474ad-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem Ipsum",
+            "heading_vertical_line_height": 10,
+            "heading_vertical_line_margin_left": 50
+          }
+        },
+        "8e5d152b-4c64-4ea5-bf56-4336dfb9e002": {
+          "type": "text",
+          "settings": {
+            "padding_top": 140,
+            "text_line_color": "#0279a8",
+            "before_text_line_height": 0,
+            "before_text_line_margin_left": 50,
+            "code_1": "",
+            "text": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
+            "code_2": "",
+            "bafter_text_line_height": 10,
+            "after_text_line_margin_left": 50,
+            "padding_bottom": 120
+          }
+        },
+        "1641764533aaa474ad-1": {
+          "type": "text",
+          "settings": {
+            "padding_top": 10,
+            "text_line_color": "#000000",
+            "before_text_line_height": 10,
+            "before_text_line_margin_left": 50,
+            "code_1": "",
+            "text": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
+            "code_2": "",
+            "bafter_text_line_height": 10,
+            "after_text_line_margin_left": 50,
+            "padding_bottom": 10
+          }
+        },
+        "1641764533aaa474ad-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": "immune-health\/the-human-touch",
+            "post_align": "align_left"
+          }
+        },
+        "1641764533aaa474ad-3": {
+          "type": "vertical_line",
+          "settings": {
+            "vertical_line_height": 240,
+            "vertical_line_top_position": -8,
+            "vertical_line_margin_left": 50
+          }
+        }
+      },
+      "block_order": [
+        "1641764533aaa474ad-0",
+        "8e5d152b-4c64-4ea5-bf56-4336dfb9e002",
+        "1641764533aaa474ad-1",
+        "1641764533aaa474ad-2",
+        "1641764533aaa474ad-3"
+      ],
+      "settings": {
+        "color_background": "#0279a8",
+        "color_text": "#ffffff",
+        "line_color": "#ffc900",
+        "cover_image": "shopify:\/\/shop_images\/placeholder.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "vertical_line_height_mobile": 90,
+        "banner_title": "",
+        "banner_text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_type": "button--primary"
+      }
+    },
+    "16418369247628bd43": {
+      "type": "rich_text_horizontal-line-02",
+      "disabled": true,
+      "blocks": {
+        "164183692382b1554d-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading": "Lorem Ipsum",
+            "title-align": "right"
+          }
+        },
+        "164183692382b1554d-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
+            "text-align": "left",
+            "rich-text-lined__margin-top": 64,
+            "rich-text-lined__margin-top-mobile": 0,
+            "rich-text-lined__width": 100,
+            "rich-text-lined__padding_right": 0,
+            "rich-text-lined__padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "164183692382b1554d-0",
+        "164183692382b1554d-1"
+      ],
+      "settings": {
+        "color_background": "#fff",
+        "color_text": "#000",
+        "section-padding-top": 0,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom": 0,
+        "section-padding-bottom-mobile": 0,
+        "line_color": "#ffc900",
+        "horizontal_line_top_position": 72,
+        "horizontal_line_top_position_mobile": 159
+      }
+    },
+    "1641761936b7824697": {
+      "type": "secrion-logos",
+      "disabled": true,
+      "blocks": {
+        "1641761936389611ad-0": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo5.png"
+          }
+        },
+        "2998dccf-93e8-4586-8f6e-5e924a187780": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo4.png"
+          }
+        },
+        "61ebe02e-8df6-4120-b899-c277f4980e83": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo1.png"
+          }
+        },
+        "8d6940c7-b7c2-4b2c-98a8-b99c70c6c0b2": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo3.png"
+          }
+        },
+        "95d3437f-3174-40af-b39a-00f0d4097c94": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo6.png"
+          }
+        },
+        "ff565370-780b-47d8-8967-b66e0112d742": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo8.png"
+          }
+        },
+        "5107ea26-13f1-4197-a597-74c3895f93bc": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo9.png"
+          }
+        },
+        "80da77fa-86b3-4ae6-8b5e-08e728490b31": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo10.png"
+          }
+        },
+        "84f8a3c2-c344-43b1-912b-adb2e7dccfb3": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo11.png"
+          }
+        },
+        "7bab9298-e6c2-43a3-8cd2-c0c4c00c36cd": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo12.png"
+          }
+        },
+        "f35d1155-ae4f-48e3-addb-af9f9ad12de9": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo13.png"
+          }
+        },
+        "78444e86-e54b-4c07-b554-29d4dfed833a": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo14.png"
+          }
+        },
+        "b550804b-adf9-402b-997e-b04b82313c9d": {
+          "type": "partners_logo",
+          "settings": {
+            "partners_logo_link": "",
+            "partners_logo_image": "shopify:\/\/shop_images\/logo15.png"
+          }
+        }
+      },
+      "block_order": [
+        "1641761936389611ad-0",
+        "2998dccf-93e8-4586-8f6e-5e924a187780",
+        "61ebe02e-8df6-4120-b899-c277f4980e83",
+        "8d6940c7-b7c2-4b2c-98a8-b99c70c6c0b2",
+        "95d3437f-3174-40af-b39a-00f0d4097c94",
+        "ff565370-780b-47d8-8967-b66e0112d742",
+        "5107ea26-13f1-4197-a597-74c3895f93bc",
+        "80da77fa-86b3-4ae6-8b5e-08e728490b31",
+        "84f8a3c2-c344-43b1-912b-adb2e7dccfb3",
+        "7bab9298-e6c2-43a3-8cd2-c0c4c00c36cd",
+        "f35d1155-ae4f-48e3-addb-af9f9ad12de9",
+        "78444e86-e54b-4c07-b554-29d4dfed833a",
+        "b550804b-adf9-402b-997e-b04b82313c9d"
+      ],
+      "settings": {
+        "color_background": "#ffffff"
+      }
+    },
+    "16394938120814e8e1": {
+      "type": "title-text-button",
+      "disabled": true,
+      "blocks": {
+        "16394938126050e6fd-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Making a Difference",
+            "heading_size": "h1"
+          }
+        },
+        "16394938126050e6fd-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Caring about people comes naturally to everyone.  But, with the complex and busy lives we lead it often requires ongoing and purposeful effort.  At Natural Factors it is our privilege to find creative and meaningful ways to show people we care.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16394938126050e6fd-0",
+        "16394938126050e6fd-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "1639493664eb1f8839": {
+      "type": "social",
+      "blocks": {
+        "1639493664db12b77e-0": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/pinterest.png",
+            "social_link": ""
+          }
+        },
+        "c2a5e118-8f53-4e19-9152-97ea2626903a": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/linkedin.png",
+            "social_link": ""
+          }
+        },
+        "40802808-45ab-4b73-ab0c-727fe65a5747": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/facebook.png",
+            "social_link": ""
+          }
+        },
+        "61689981-6a7c-41b8-b82c-018666932123": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/ttwitter.png",
+            "social_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1639493664db12b77e-0",
+        "c2a5e118-8f53-4e19-9152-97ea2626903a",
+        "40802808-45ab-4b73-ab0c-727fe65a5747",
+        "61689981-6a7c-41b8-b82c-018666932123"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "section-padding-top": 60,
+        "section-padding-bottom": 60,
+        "section-padding-top-mobile": 60,
+        "section-padding-bottom-mobile": 60
+      }
+    },
+    "1639493559c643d4dc": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Blog posts",
+        "blog": "immune-health",
+        "post_limit": 3,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "soft_background": false,
+        "show_view_all": true
+      }
+    },
+    "16421495771c3d3797": {
+      "type": "video-and-story",
+      "blocks": {
+        "16421495770cb38925-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Title of Story"
+          }
+        },
+        "16421495770cb38925-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Story Text.<\/p>",
+            "text_2": "<p>Story Text.<\/p>"
+          }
+        },
+        "16421495770cb38925-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "16421495770cb38925-0",
+        "16421495770cb38925-1",
+        "16421495770cb38925-2"
+      ],
+      "settings": {
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "height": "adapt",
+        "color_scheme": "background-1",
+        "layout": "image_first",
+        "section-padding-top": 0,
+        "section-padding-top-mobile": 0,
+        "banner_position": 0,
+        "line_color": "#000",
+        "vertical_line_height": 100,
+        "vertical_line_top_position": -28,
+        "vertical_line_margin_left": 20,
+        "vertical_line_height_mobile": 0
+      }
+    },
+    "1642149582ec2b640d": {
+      "type": "banner-and-story",
+      "blocks": {
+        "16421495825ef05886-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Title of Story"
+          }
+        },
+        "16421495825ef05886-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Story Text.<\/p>"
+          }
+        },
+        "16421495825ef05886-2": {
+          "type": "featured_posts",
+          "settings": {
+            "article_1": ""
+          }
+        }
+      },
+      "block_order": [
+        "16421495825ef05886-0",
+        "16421495825ef05886-1",
+        "16421495825ef05886-2"
+      ],
+      "settings": {
+        "height": "adapt",
+        "color_scheme": "background-1",
+        "layout": "image_first",
+        "section-padding-top": -210,
+        "section-padding-top-mobile": 0,
+        "banner_position": 0,
+        "line_color": "#000",
+        "vertical_line_height": 50,
+        "vertical_line_top_position": 0,
+        "vertical_line_margin_left": 20,
+        "vertical_line_height_mobile": 60
+      }
+    }
+  },
+  "order": [
+    "164183725220393f6a",
+    "main",
+    "1641643854735a2c77",
+    "164175048689e99133",
+    "16394917731f1a15d1",
+    "164166498934ac4d9c",
+    "1641750772499f1286",
+    "1641756044aa1774d3",
+    "164167398129bf1c9b",
+    "1639493150bcb1905e",
+    "1639493309fb2c29a8",
+    "1641751773d5662779",
+    "16417645341289d9fa",
+    "16418369247628bd43",
+    "1641761936b7824697",
+    "16394938120814e8e1",
+    "1639493664eb1f8839",
+    "1639493559c643d4dc",
+    "16421495771c3d3797",
+    "1642149582ec2b640d"
+  ]
+}

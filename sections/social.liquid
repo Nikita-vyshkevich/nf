@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="{{ 'section-citation.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-socials.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'section-citation.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{  'component-socials.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class=" centered--section ">
+  <div class="citation color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} citation--full-width{% endif %} empty-margin__{{ section.id }}">
+    <div class="socials_wrapper">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+         
+          {%- when 'socials' -%}
+            <a href="{{ block.settings.social_link }}"  class="socials_item">
+              <img src="{{ block.settings.socials_icon | img_url: '100x' }}">
+            </a>
+          
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% style %}
+.empty-margin__{{ section.id }} {
+  margin-top: {{ section.settings.section-padding-top }}px;
+  margin-bottom: {{ section.settings.section-padding-bottom }}px;
+  padding-top: {{ section.settings.section-padding-top }}px;
+  padding-bottom: {{ section.settings.section-padding-bottom }}px;
+}
+@media screen and (max-width: 750px) {
+  .empty-margin__{{ section.id }} {
+    margin-top: {{ section.settings.section-padding-top-mobile }}px;
+    margin-bottom: {{ section.settings.section-padding-bottom-mobile }}px;
+    padding-top: {{ section.settings.section-padding-top-mobile }}px;
+    padding-bottom: {{ section.settings.section-padding-bottom-mobile }}px;
+  }
+}
+{% endstyle %}
+
+
+{% schema %}
+{
+  "name": "Socials",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.rich-text.settings.color_scheme.options__5.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.rich-text.settings.color_scheme.label"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom",
+      "label": "Section bottom position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom-mobile",
+      "label": "Section bottom position on mobile",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "socials",
+      "name": "Socials",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "socials_icon",
+          "label": "Social icon"
+        },
+        {
+          "type": "url",
+          "id": "social_link",
+          "label": "Social link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Socials",
+      "blocks": [
+        {
+          "type": "socials"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

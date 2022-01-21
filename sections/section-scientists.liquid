@@ -1,0 +1,220 @@
+{{ 'component-banner-2-col-text.css' | asset_url | stylesheet_tag }}
+
+<div class="section_logos_wrapper" style="background-color:{{ section.settings.color_background }}; color: {{ section.settings.color_text }};">
+  <div class="page-width wrapper__content banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet">
+    <div class="partners_logo_wrapper">
+
+    {%- for block in section.blocks -%}
+    {% case block.type %}
+
+    {%- when 'scientist' -%}
+        <div class="scientist-grid-item mgrid-item--width2 mgrid-item--height-auto block-3">
+        <div class="mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{
+          block.shopify_attributes }}>
+          <div class="mini__post-list">
+            <div class="mini__post-item">
+            
+                <div class="scientist-image-wrapper">
+                  <img src="{{ block.settings.scientist_image | img_url: '100x80', crop: 'left', scale: 1 }}"
+                    alt="{{ block.settings.scientist_image.alt | escape }}" class="scientist-image">
+                </div>
+
+              <div class="mini__post-info">
+                <h3 class="mini__post-title">{{ block.settings.scientist_name }}</h3>
+                <p class="mini__post-text">{{- block.settings.scientist_cv | strip_html | truncate: 50 -}}</p>
+                <a class="mini__post-link" href="">Read more &#8594;</a>
+              </div>
+            </div>
+      
+          </div>
+
+          {% style %}
+
+          .scientist-image-wrapper {
+            min-width: 35%;
+            overflow: hidden;
+            z-index: 2;
+          }
+
+          .scientist-grid-item {
+
+          }
+
+          .scientist-grid-item:nth-child(odd) {
+            margin-top: 25px;
+            padding-right: 0px;
+            padding-left: 0px;
+          }
+
+          .scientist-grid-item:nth-child(even) {
+            margin-top: 25px;
+            padding-left: 0px;
+            padding-right: 0px;
+          }
+
+          .scientist-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+
+          @media screen and (max-width: 950px) {
+            .scientist-image-wrapper {
+              width: 100%;
+              height: 50%;
+            }
+          }
+
+          @media screen and (min-width: 950px) {
+            .scientist-grid-item:nth-child(odd) {
+              margin-top: 5px;
+              padding-right: 20px;
+              padding-left: 0px;
+            }
+  
+            .scientist-grid-item:nth-child(even) {
+              margin-top: 50px;
+              padding-left: 20px;
+              padding-right: 0px;
+            }  
+          }
+
+          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+          margin-top: 0;
+          margin-bottom: -400px!Important;
+          margin-left: auto;
+          margin-right: auto;
+          }
+
+          @media screen and (min-width: 950px) {
+          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+          margin-bottom: -0px!Important;
+          padding-top: 0;
+          }
+          }
+
+          @media screen and (min-width: 1900px) {
+          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+          padding-top: 0;
+          }
+          }
+          {% endstyle %}
+
+          {%- if block.settings.post_align.value == 'align_left' -%}
+          {% style %}
+          @media screen and (min-width: 950px) {
+          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+          margin-bottom: -0px!Important;
+          padding-top: 0;
+          margin-left: 0;
+          margin-right: auto;
+          }
+          }
+          {% endstyle %}
+          {%- else -%}
+          {% style %}
+          @media screen and (min-width: 950px) {
+          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+          margin-bottom: -0px!Important;
+          padding-top: 0;
+          margin-left: auto;
+          margin-right: 0;
+          }
+          }
+          {% endstyle %}
+          {%- endif -%}
+        </div>
+      </div>
+
+    {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+
+</div>
+
+<style>
+.scientists_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.scientists_card {
+  
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Scientists",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "scientist",
+      "name": "Scientist",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "scientist_image",
+          "label": "t:sections.banner-and-story.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "scientist_name",
+          "label": "Scientist name"
+        },
+        {
+          "type": "text",
+          "id": "scientist_cv",
+          "label": "About scientist"
+        },
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        },
+        {
+          "type": "select",
+          "id": "post_align",
+          "label": "Align left right post",
+          "default": "align_left",
+          "options": [
+            {
+              "value": "align_left",
+              "label": "Align left"
+            },
+            {
+              "value": "align_right",
+              "label": "Align right"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scientist",
+      "blocks": [
+        {
+          "type": "scientist"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,261 @@
+{
+  "sections": {
+    "1635545051f8a75d07": {
+      "type": "page-title",
+      "blocks": {
+        "1635545051f8a75d07-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Nature"
+          }
+        }
+      },
+      "block_order": [
+        "1635545051f8a75d07-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "1636391701168380af": {
+      "type": "video-and-richtext",
+      "blocks": {
+        "1636391701168380af-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Nature",
+            "heading_size": "h1"
+          }
+        },
+        "1636391701168380af-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Natural Factors, we care. We care about the source and purity of our products. We care about being good stewards of the Earth. We care about the harmony future generations must have with the natural world in order to not just survive, but thrive.<\/p>"
+          }
+        },
+        "1636391701168380af-2": {
+          "type": "second_heading",
+          "settings": {
+            "second_title": "Caring is in Our Nature."
+          }
+        }
+      },
+      "block_order": [
+        "1636391701168380af-0",
+        "1636391701168380af-1",
+        "1636391701168380af-2"
+      ],
+      "settings": {
+        "cover_image": "shopify:\/\/shop_images\/Bitmap.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "height": "adapt",
+        "color_scheme": "accent-2",
+        "layout": "image_first",
+        "section-padding-top": -66,
+        "section-padding-top-mobile": -78,
+        "banner_position": 23
+      }
+    },
+    "1636445609d2dbd211": {
+      "type": "pages-section-full-width",
+      "blocks": {
+        "1636445609d2dbd211-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading_2": "We Care About",
+            "heading": "The Source"
+          }
+        },
+        "1636445609d2dbd211-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From our certified organic farmland in the pristine Okanagan Valley in British Columbia to our fisheries in frosty Alaska, we care about the source of our products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1636445609d2dbd211-0",
+        "1636445609d2dbd211-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/AdobeStock_247127740.png",
+        "height": "adapt",
+        "button_label": "Learn about the source",
+        "button_link": "shopify:\/\/pages\/the-source"
+      }
+    },
+    "1636461596d77ddaaa": {
+      "type": "pages-section-full-width",
+      "blocks": {
+        "1636461596d77ddaaa-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading_2": "We Care About",
+            "heading": "Purity"
+          }
+        },
+        "1636461596d77ddaaa-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You deserve natural health products that are safe, rigorously tested, and of the highest quality. We care about the purity of our products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1636461596d77ddaaa-0",
+        "1636461596d77ddaaa-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Bitmap_Copy.png",
+        "height": "adapt",
+        "button_label": "Learn about the purity",
+        "button_link": "shopify:\/\/pages\/purity"
+      }
+    },
+    "16364634085563c4ad": {
+      "type": "pages-section-full-width",
+      "blocks": {
+        "16364634085563c4ad-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading_2": "We Care About",
+            "heading": "The Planet"
+          }
+        },
+        "16364634085563c4ad-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We care deeply for the future of our beautiful Earth. After all, this is the only one we have. It is our mission to do everything we can to return the Earth to its original glory.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16364634085563c4ad-0",
+        "16364634085563c4ad-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Bitmap_Copy_2.png",
+        "height": "adapt",
+        "button_label": "Learn about the planet",
+        "button_link": "shopify:\/\/pages\/the-planet"
+      }
+    },
+    "163646359884cdf5ee": {
+      "type": "pages-section-full-width",
+      "blocks": {
+        "163646359884cdf5ee-0": {
+          "type": "heading",
+          "settings": {
+            "heading_size": "h1",
+            "heading_2": "We Care About",
+            "heading": "People"
+          }
+        },
+        "163646359884cdf5ee-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We quietly do our part to make the world a better place for future generations. We firmly believe in 'paying it forward' by teaching other how to care for our beautiful planet.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "163646359884cdf5ee-0",
+        "163646359884cdf5ee-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Bitmap_Copy_3.png",
+        "height": "adapt",
+        "button_label": "Learn more",
+        "button_link": "shopify:\/\/pages\/people"
+      }
+    },
+    "1635545125ac648fda": {
+      "type": "title-text-button",
+      "blocks": {
+        "1635545125ac648fda-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Our Family to Yours",
+            "heading_size": "h1"
+          }
+        },
+        "1635545125ac648fda-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Since 1984 our family-run business has grown from humble beginnings to become a world leader in providing pure and natural vitamins and supplements. To this day, we remain family-owned and operated. We have not forgotten who we are, where we came from, and what we care about.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1635545125ac648fda-0",
+        "1635545125ac648fda-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "16353677101eb730d0": {
+      "type": "citation",
+      "blocks": {
+        "16353677101eb730d0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>“Some think we have the right to exploit this earth, but really, we have no right to interfere with it.”<\/p>"
+          }
+        },
+        "16353677101eb730d0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Roland Gahler",
+            "who-is": "Owner and Founder"
+          }
+        }
+      },
+      "block_order": [
+        "16353677101eb730d0-1",
+        "16353677101eb730d0-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "section-padding-top": 0,
+        "section-padding-bottom": 27,
+        "section-padding-top-mobile": 0,
+        "section-padding-bottom-mobile": 0
+      }
+    },
+    "1635885126196d0fb1": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "FEATURED ARTICLES",
+        "blog": "immune-health",
+        "post_limit": 3,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "soft_background": false,
+        "show_view_all": true
+      }
+    }
+  },
+  "order": [
+    "1635545051f8a75d07",
+    "main",
+    "1636391701168380af",
+    "1636445609d2dbd211",
+    "1636461596d77ddaaa",
+    "16364634085563c4ad",
+    "163646359884cdf5ee",
+    "1635545125ac648fda",
+    "16353677101eb730d0",
+    "1635885126196d0fb1"
+  ]
+}

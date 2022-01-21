@@ -1,0 +1,395 @@
+
+{{ 'component-banner-2-col-text.css' | asset_url | stylesheet_tag }}
+
+<div class="section_wrapper" style="background-color:{{ section.settings.color_background }}; color: {{ section.settings.color_text }};">
+
+  <div class="page-width wrapper__content banner-and-story__grid grid grid--gapless grid--1-col grid--1-col-tablet {% if section.settings.layout == 'text_first' %} banner-and-story__grid--reverse{% endif %}">
+  
+      <div class="media_content_wrapper">
+
+        <div{% if section.settings.full_width %} class="page-width"{% endif %}>
+          <h2 class="title">{{ section.settings.heading }}</h2>
+        </div>
+
+            <div  class="media_content_container">
+              {%- if section.settings.cover_image != blank -%}
+                <img
+                  srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | img_url: '375x' }} 375w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | img_url: '750x' }} 750w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | img_url: '1100x' }} 1100w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | img_url: '1500x' }} 1500w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | img_url: '1780x' }} 1780w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | img_url: '2000x' }} 2000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | img_url: '3000x' }} 3000w,{%- endif -%}
+                    {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | img_url: '3840x' }} 3840w,{%- endif -%}
+                    {{ section.settings.cover_image | img_url: 'master' }} {{ section.settings.cover_image.width }}w"
+                  src="{{ section.settings.cover_image | img_url: '1920x' }}"
+                  sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                  alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                  loading="lazy"
+                  width="{{ section.settings.cover_image.width }}"
+                  height="{{ section.settings.cover_image.height }}"
+                  style="object-fit: cover; border-radius: 20px;"
+                >
+              {%- else -%}
+                {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+              {%- endif -%}
+            </div>
+  
+    </div>
+  </div>
+    
+    
+    <div class="page-width wrapper__content video-and-story-content banner-and-story__content--{{ section.settings.height }} desk-row__mobile-col grid_2_col" >
+
+      <hr class="vertical_line_mobile_1_{{ section.id }} show-on-mobile">
+          {% style %}
+            @media screen and (max-width: 950px) {
+                hr.vertical_line_mobile_1_{{ section.id }} {
+                  border-left: solid 2px;
+                  width: 0;
+                  border-color: {{ section.settings.line_color }}; 
+                  position: absolute;
+                  margin-top: 90px;
+                  margin-left: 24px;
+              }
+          {% endstyle %}  
+
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+
+
+            {%- when 'heading' -%}
+            <div class="col-1_2">
+              <h2 class="video-and-story__heading h1" style="color:{{ section.settings.color_text }}">
+                {{ block.settings.heading | escape }}
+              </h2>
+            </div>
+          
+            <div class="col-1_2">
+              <hr class="vertical_line_{{ block.id }} show-on-desktop">
+              {% style %}
+                hr.vertical_line_{{ block.id }} {
+                  border-left: solid 2px;
+                  width: 0;
+                  height: calc(100% + {{ section.settings.vertical_line_height }}px);
+                  border-color: {{ section.settings.line_color }}; 
+                  margin-left: {{ section.settings.vertical_line_margin_left }}%;
+                  margin-top: {{ section.settings.vertical_line_top_position }}px;
+                }
+              {% endstyle %}
+            </div>  
+                
+            
+            {%- when 'text' -%}
+            {%- if block.settings.text  != blank or block.settings.code_1 != blank  -%}
+              <div class="col-1_2">
+                <div class="information__text rte" style="color:{{ section.settings.color_text }}">{{ block.settings.text }}</div>
+                <div class="information__text rte" style="color:{{ section.settings.color_text }}">{{ block.settings.code_1 }}</div>
+              </div> 
+            {% endif %} 
+
+            {%- if block.settings.text_2  != blank or block.settings.code_2 != blank  -%}
+              <div class="col-1_2 lower_col_{{ block.id }}">
+                <div class="information__text rte" style="color:{{ section.settings.color_text }}">{{ block.settings.text_2 }}
+                  {{ block.settings.code_2 }}
+                </div>
+                <!-- <div class="information__text rte" style="color:{{ section.settings.color_text }}"></div> -->
+
+                {% style %}
+                  .lower_col_{{ block.id }} {
+                    padding-top:  0px;
+                  }
+                  .lower_col_{{ block.id }} .information__text {
+                    margin-bottom: 0px;
+                  }
+                  @media screen and (min-width: 950px) {
+                    .lower_col_{{ block.id }} {
+                      padding-top: {{ section.settings.vertical_line_height }}px;
+                    }
+                    .lower_col_{{ block.id }} .information__text {
+                      margin-bottom: -150px;
+                    }
+                  }
+                {% endstyle %}
+              </div> 
+            {% endif %} 
+
+                <div class="col-1_2"> 
+                    <!-- Here is blog article section start  -->
+                      {%- when 'featured_posts' -%}
+                      {%- if block.settings.article_1 != blank -%}
+                          <div class=" mini__item mini__item--posts mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{ block.shopify_attributes }} >
+                            <div class="mini__post-list">
+                              {%- assign show_placeholder = true -%}
+                              {%- for i in (1..5) -%}
+                                {%- assign article_option = 'article_' | append: i -%}
+                                {%- assign article = articles[block.settings[article_option]] -%}
+                                {%- unless article.empty? -%}
+                                  <div class="mini__post-item">
+                                    {%- if article.image -%}
+                                      <div class="mini__post-image-wrapper">
+                                          <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}" alt="{{ article.image.alt | escape }}" class="mini__post-image">
+                                      </div>
+                                    {%- endif -%}
+                                    <div class="mini__post-info">
+                                      <h3 class="mini__post-title">{{ article.title }}</h3>
+                                      <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+                                      <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+                                    </div>
+                                  </div>
+                                  {%- assign show_placeholder = false -%}
+                                {%- endunless -%}
+                              {%- endfor -%}
+                            </div>
+                          {% style %}
+                          .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+                                  margin-top: 0;
+                                  margin-bottom: -400px!Important;
+                                  margin-left: auto;
+                                  margin-right: auto;
+                                }    
+
+                            @media screen and (min-width: 950px) {
+                              .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+                                  margin-bottom: -0px!Important;
+                                  margin-left: 0;
+                                  margin-right: auto;
+                                  padding-top: 0;
+                                }
+                              }
+
+                            @media screen and (min-width: 1900px) {
+                              .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+                                  margin-left: 0;
+                                  margin-right: auto;
+                                  padding-top: 0;
+                              }
+                            }
+                          {% endstyle %}
+                      </div>
+                    {% endif %}
+                    <!-- Here is blog article section finish  -->
+
+                    <!-- This is vertical line after blog  -->
+                    <!-- {%- if block.settings.article_1 != blank -%}
+                    <hr class="vertical_line_mobile_2_{{ section.id }} show-on-desktop">
+                    {% endif %} -->
+                    <!-- {% style %}
+                      @media screen and (min-width: 750px) {
+                          hr.vertical_line_mobile_2_{{ section.id }} {
+                            border-color: {{ section.settings.line_color }}; 
+                            border-left: solid 2px;
+                            width: 0;
+                            border-color: {{ section.settings.line_color }}; 
+                            position: absolute;
+                            margin-top: -20px;
+                            margin-left: 290px;
+                            height: 200px;
+                            z-index: 1;
+                        }
+                    {% endstyle %} -->
+                </div>        
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+</div>
+
+
+<script>
+  window.addEventListener("load", function() {
+    let box = document.querySelector('.video-and-story-content');
+    let heightBox = box.clientHeight;
+    let sectionID = '{{ section.id }}';
+    let heightOption = '{{ section.settings.vertical_line_height_mobile }}'
+    let line = document.getElementsByClassName('vertical_line_mobile_1_' + sectionID)[0];
+    line.style.height = Number(heightBox - 500) + Number(heightOption) + 'px';
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Banner - 2 column text",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "default": "#000",
+      "label": "Text color"
+    },  
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.banner-and-story.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.banner-and-story.settings.height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.banner-and-story.settings.height.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.banner-and-story.settings.height.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.banner-and-story.settings.height.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.banner-and-story.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.banner-and-story.settings.layout.label",
+      "info": "t:sections.banner-and-story.settings.layout.info"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height",
+      "default": "0",
+      "label": "Vertical line height",
+      "info": "This option for change vertical line height",
+      "min": 0,
+      "max": 1000,
+      "step": 10,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_top_position",
+      "default": "0",
+      "label": "Vertical line top position on desktop",
+      "info": "This option for move vertical line up",
+      "min": -200,
+      "max": 200,
+      "step": 4,
+      "default": -28
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_margin_left",
+      "default": "0",
+      "label": "Vertical line horizontal position",
+      "info": "This option for change vertical line horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "vertical_line_height_mobile",
+      "default": "0",
+      "label": "Vertical line height on mobile",
+      "info": "This option for change vertical line height for mobile devices. ",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.banner-and-story.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Title of Story",
+          "label": "t:sections.banner-and-story.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.banner-and-story.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Story Text.</p>",
+          "label": "First column text"
+        },
+        {
+          "type": "html",
+          "id": "code_1",
+          "label": "First column HTML"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "default": "<p>Story Text.</p>",
+          "label": "Second column text"
+        },
+        {
+          "type": "html",
+          "id": "code_2",
+          "label": "Second column HTML"
+        }
+      ]
+    },
+    {
+      "type": "featured_posts",
+      "name": "Blog posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner - 2 column text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "featured_posts"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

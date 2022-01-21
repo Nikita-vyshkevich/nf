@@ -1,0 +1,475 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-rich-text-lined.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-banner-and-story.css' | asset_url }}">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-rich-text-lined.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="section_wrapper__{{ section.id }} wrapper__{{ section.id }}"
+  style="background-color:{{ section.settings.color_background }}; color:{{ section.settings.color_text }}"
+>
+  <div class="page-width">
+  <div class="desk-row__mobile-col wrap empty-margin__{{ section.id }}">
+    {%- for block in section.blocks -%}
+    {%- case block.type -%}
+
+    {%- when 'heading' -%}
+    <div class="row-reverse">
+      <div class="col-2_3 {{ block.id }}">
+        <h2 class="{{ block.settings.heading_size }} rich-text-lined__title__{{ block.id }}" {{ block.shopify_attributes
+          }}>{{ block.settings.heading | escape }}</h2>
+
+        {% style %}
+        .rich-text-lined__title__{{ block.id }} {
+        {% if block.settings.title-align == "right" %}
+        text-align: right;
+        padding-left: 5%;
+        {% elsif block.settings.title-align == "left" %}
+        text-align: left;
+        padding-right: 5%;
+        {% endif %}
+        }
+
+        @media screen and (max-width: 750px) {
+        .rich-text-lined__title__{{ block.id }} {
+        order: 1;
+        }
+        }
+        {% endstyle %}
+      </div>
+    </div>
+
+    {%- when 'text' -%}
+    <div class="row-row {{ block.id }}">
+      <div class="col-2_3 rich-text-lined__text__{{ section.id }}  rte" {{ block.shopify_attributes }}>{{
+        block.settings.text }}
+        {% style %}
+        .rich-text-lined__text__{{ section.id }} {
+        margin-top: {{ block.settings.rich-text-lined__margin-top }}px;
+        padding-left: {{ block.settings.rich-text-lined__padding_left}}%;
+        padding-right: {{ block.settings.rich-text-lined__padding_right}}%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        {% if block.settings.text-align == "right" %}
+        text-align: right;
+        {% else %}
+        text-align: left;
+        {% endif %}
+        }
+        .rich-text-lined__text__{{ section.id }} p {
+        width: {{ block.settings.rich-text-lined__width}}%;
+        }
+
+        @media screen and (max-width: 950px) {
+        .rich-text-lined__text__{{ section.id }} {
+          margin-top: {{ block.settings.rich-text-lined__margin-top-mobile }}px;
+          padding-left: 0;
+          padding-right: 0;
+          order: 2;
+          flex-direction: row;
+        }
+        .rich-text-lined__text__{{ section.id }} p {
+          width: 100%;
+        }
+        }
+        {% endstyle %}
+        </div>
+
+        <div class="horizontal_line_wrapper">
+          <hr class="horizontal_line_{{ section.id }}">
+          {% style %}
+          .horizontal_line_wrapper {
+            display: flex; 
+            order: 2;
+          }
+          hr.horizontal_line_{{ section.id }} {
+            border-bottom: solid 2px;
+            width: 25vw;
+            height: 2px;
+            border-color: {{ section.settings.line_color }};
+            position: relative;
+            margin-right: -80px;
+            margin-top: {{ section.settings.horizontal_line_top_position }}px;
+          }
+          @media screen and (max-width: 950px) {
+            hr.horizontal_line_{{ section.id }} {
+              width: 50px;
+              margin-right: -23px;
+              margin-top: {{ section.settings.horizontal_line_top_position_mobile }}px;
+            }
+          }
+          {% endstyle %}
+        </div>
+    </div>
+
+    <!-- Here is blog article section start  -->
+    {%- when 'featured_posts' -%}
+    {%- if block.settings.article_1 != blank -%}
+    <div class="row">
+      <div class="col-1_2">
+
+        <div class=" mini__item mini__item--posts mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{
+          block.shopify_attributes }}>
+          <div class="mini__post-list">
+            {%- assign show_placeholder = true -%}
+            {%- for i in (1..5) -%}
+            {%- assign article_option = 'article_' | append: i -%}
+            {%- assign article = articles[block.settings[article_option]] -%}
+            {%- unless article.empty? -%}
+            <div class="mini__post-item">
+              {%- if article.image -%}
+              <div class="mini__post-image-wrapper">
+                <img src="{{ article.image | img_url: '100x80', crop: 'center', scale: 2 }}"
+                  alt="{{ article.image.alt | escape }}" class="mini__post-image">
+              </div>
+              {%- endif -%}
+              <div class="mini__post-info">
+                <h3 class="mini__post-title">{{ article.title }}</h3>
+                <p class="mini__post-text">{{- article.content | strip_html | truncate: 50 -}}</p>
+                <a class="mini__post-link" href="{{ article.url }}">Read more &#8594;</a>
+              </div>
+            </div>
+            {%- assign show_placeholder = false -%}
+            {%- endunless -%}
+            {%- endfor -%}
+          </div>
+        </div>
+        {% style %}
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        margin-top: 0;
+        margin-bottom: -400px!Important;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        @media screen and (min-width: 950px) {
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        margin-bottom: -0px!Important;
+        margin-left: 0;
+        margin-right: auto;
+        padding-top: 0;
+        }
+        }
+
+        @media screen and (min-width: 1900px) {
+        .mini__item.mini__item--posts.mini-blog-{{ block.id }} {
+        margin-left: 0;
+        margin-right: auto;
+        padding-top: 0;
+        }
+        }
+        {% endstyle %}
+        <!-- Here is blog article section finish  -->
+      </div>
+    </div>
+    <script>
+      window.addEventListener("load", function () {
+        let sectionID = '{{ section.id }}';
+        let sectionWrapper = document.querySelector('.wrapper__'+ sectionID);
+        sectionWrapper.classList.add('margins-when-article');
+      });
+    </script>
+    {% endif %}
+
+
+    {%- endcase -%}
+    {%- endfor -%}
+
+
+  </div>
+</div>
+  <!-- <script>
+    window.addEventListener("load", function () {
+      let sectionID = '{{ section.id }}';
+      let box = document.querySelector('.rich-text-lined__text__' + sectionID);
+      let heightBox = box.clientHeight;
+      let line = document.getElementsByClassName('horizontal_line_' + sectionID)[0];
+
+      function screen_resize() {
+        var h = parseInt(window.innerHeight);
+        var w = parseInt(window.innerWidth);
+        if (w <= 950) {
+          let marginTopOnMobile = '{{ section.settings.horizontal_line_top_position_mobile }}'
+          line.style.top = Number(heightBox) / 2;
+        }
+      }
+      screen_resize()
+    });
+  </script> -->
+
+
+{% style %}
+  .empty-margin__{{ section.id }} {
+  margin-top: {{ section.settings.section-padding-top }}%;
+  margin-bottom: {{ section.settings.section-padding-bottom }}%;
+  }
+  @media screen and (max-width: 750px) {
+  .empty-margin__{{ section.id }} {
+  margin-top: {{ section.settings.section-padding-top-mobile }}%;
+  margin-bottom: {{ section.settings.section-padding-bottom-mobile }}%;
+  }
+  }
+
+  .section_wrapper__{{ section.id }} {
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 950px) {
+  .margins-when-article {
+    margin-bottom: 0px;
+  }
+}
+  @media screen and (max-width: 950px) {
+    .margins-when-article {
+      margin-bottom: 440px!Important;
+    }
+  }
+{% endstyle %}
+
+
+{% schema %}
+{
+  "name": "Text horizontal line 02",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_background",
+      "default": "#fff",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "default": "#000",
+      "label": "Text color"
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top",
+      "label": "Section top position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-top-mobile",
+      "label": "Section top position on mobile",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom",
+      "label": "Section bottom position on desktop",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section-padding-bottom-mobile",
+      "label": "Section bottom position on mobile",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#000",
+      "label": "Lines color",
+      "info": "Choose the lines color"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_line_top_position",
+      "default": "0",
+      "label": "Horizontal line top position desktop",
+      "info": "This option for move line line down",
+      "min": 0,
+      "max": 600,
+      "step": 6,
+      "default": 240
+    },
+    {
+      "type": "range",
+      "id": "horizontal_line_top_position_mobile",
+      "default": "0",
+      "label": "Horizontal line top position on mobile",
+      "info": "This option for move line line down on mobile",
+      "min": 0,
+      "max": 300,
+      "step": 3,
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+        },
+          {
+          "type": "text",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "title-align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Align left"
+            },
+            {
+              "value": "right",
+              "label": "Align right"
+            }
+          ],
+          "default": "left",
+          "label": "Align title"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand.</p>",
+          "label": "First column text"
+        },
+        {
+          "type": "select",
+          "id": "text-align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Align left"
+            },
+            {
+              "value": "right",
+              "label": "Align right"
+            }
+          ],
+          "default": "left",
+          "label": "Align text"
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__margin-top",
+          "label": "Text block top position on desktop",
+          "min": 4,
+          "max": 400,
+          "step": 4,
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__margin-top-mobile",
+          "label": "Text block top position on mobile",
+          "min": 0,
+          "max": 400,
+          "step": 4,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__width",
+          "label": "Width text",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__padding_right",
+          "label": "Space right",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rich-text-lined__padding_left",
+          "label": "Space left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "featured_posts",
+      "name": "Blog posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_1",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text horizontal line 02",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "featured_posts"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
+

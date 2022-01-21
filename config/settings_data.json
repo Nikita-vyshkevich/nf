@@ -1,0 +1,235 @@
+{
+  "current": {
+    "colors_solid_button_labels": "#FFFFFF",
+    "colors_accent_1": "#014683",
+    "colors_accent_2": "#ffc900",
+    "colors_text": "#121212",
+    "colors_outline_button_labels": "#121212",
+    "colors_background_1": "#ffffff",
+    "colors_background_2": "#FAF8F7",
+    "colors_background_3": "#40352c",
+    "colors_background_4": "#dac7bd",
+    "type_header_font": "assistant_n4",
+    "type_body_font": "assistant_n4",
+    "pt_mobile_enable": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/Screen_Shot_2021-11-04_at_18.31.26.png",
+    "checkout_logo_position": "center",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Welcome to our store",
+              "color_scheme": "background-1",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "color_scheme": "background-1",
+          "logo": "shopify:\/\/shop_images\/Bordered_Logo.png",
+          "logo_mobile": "shopify:\/\/shop_images\/Bordered_Logo.png",
+          "logo_width": 140,
+          "logo_position": "middle-left",
+          "menu": "main-menu",
+          "show_line_separator": true,
+          "enable_sticky_header": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Explore",
+              "menu": "explore"
+            }
+          },
+          "c50f5155-7ae3-486b-9ad2-8080b0c185c7": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Business",
+              "menu": "business"
+            }
+          },
+          "22fa7436-d9ef-4d61-9477-b4b73b11e94b": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Customers",
+              "menu": "customers"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "c50f5155-7ae3-486b-9ad2-8080b0c185c7",
+          "22fa7436-d9ef-4d61-9477-b4b73b11e94b"
+        ],
+        "settings": {
+          "color_scheme": "background-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe",
+          "show_social": true,
+          "enable_country_selector": true,
+          "enable_language_selector": true,
+          "payment_enable": true
+        }
+      },
+      "filter-menu-settings": {
+        "type": "filter-menu-settings",
+        "settings": {
+        }
+      },
+      "our_nature": {
+        "type": "our_nature",
+        "blocks": {
+          "33586526-b6c9-41f5-86dc-0938996aa0e5": {
+            "type": "heading",
+            "settings": {
+              "heading": "Our Nature",
+              "heading_size": "h1"
+            }
+          },
+          "59cd9641-2562-4ab7-9eaf-e6bdbfd236fe": {
+            "type": "text",
+            "settings": {
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec mi est. Suspendisse potenti. Sed lobortis augue sit amet velit luctus, tempus maximus diam auctor.<\/p>"
+            }
+          },
+          "2f9965fe-4f8d-4a99-8eb2-5782ca77e712": {
+            "type": "second_heading",
+            "settings": {
+              "second_title": "We care about…"
+            }
+          },
+          "a359b71e-eab2-4087-a08e-791d1dfb2d0a": {
+            "type": "page",
+            "settings": {
+              "page_title": "The Source",
+              "page_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec mi est. Suspendisse potenti.",
+              "page_link_button": "shopify:\/\/pages\/the-source"
+            }
+          },
+          "87750d10-3b47-491e-8db0-d98f5e19a6f8": {
+            "type": "page",
+            "settings": {
+              "page_title": "Purity",
+              "page_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec mi est. Suspendisse potenti.",
+              "page_link_button": "shopify:\/\/pages\/purity"
+            }
+          },
+          "3e75c810-e202-4001-90ae-ff8759900d4b": {
+            "type": "page",
+            "settings": {
+              "page_title": "The Planet",
+              "page_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec mi est. Suspendisse potenti.",
+              "page_link_button": "shopify:\/\/pages\/the-planet"
+            }
+          },
+          "91f30776-7dbd-43a9-91f1-3d81038415bc": {
+            "type": "page",
+            "settings": {
+              "page_title": "People",
+              "page_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec mi est. Suspendisse potenti.",
+              "page_link_button": "shopify:\/\/pages\/the-planet"
+            }
+          }
+        },
+        "block_order": [
+          "33586526-b6c9-41f5-86dc-0938996aa0e5",
+          "59cd9641-2562-4ab7-9eaf-e6bdbfd236fe",
+          "2f9965fe-4f8d-4a99-8eb2-5782ca77e712",
+          "a359b71e-eab2-4087-a08e-791d1dfb2d0a",
+          "87750d10-3b47-491e-8db0-d98f5e19a6f8",
+          "3e75c810-e202-4001-90ae-ff8759900d4b",
+          "91f30776-7dbd-43a9-91f1-3d81038415bc"
+        ],
+        "settings": {
+          "color_scheme": "background-2",
+          "full_width": true
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+      "colors_solid_button_labels": "#FFFFFF",
+      "colors_accent_1": "#121212",
+      "colors_accent_2": "#334FB4",
+      "colors_text": "#121212",
+      "colors_outline_button_labels": "#121212",
+      "colors_background_1": "#FFFFFF",
+      "colors_background_2": "#F3F3F3",
+      "type_header_font": "assistant_n4",
+      "type_body_font": "assistant_n4",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "color_scheme": "background-1"
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+          }
+        }
+      }
+    },
+    "Craft": {
+      "colors_solid_button_labels": "#EFECEC",
+      "colors_accent_1": "#2A332F",
+      "colors_accent_2": "#476154",
+      "colors_text": "#1C1A1A",
+      "colors_outline_button_labels": "#7B8382",
+      "colors_background_1": "#EFECEC",
+      "colors_background_2": "#C1BCAE",
+      "type_header_font": "americana_n4",
+      "type_body_font": "quattrocento_sans_n4",
+      "sections": {
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "menu": {
+              "type": "link_list",
+              "settings": {
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "menu",
+            "text"
+          ],
+          "settings": {
+            "color_scheme": "accent-1"
+          }
+        }
+      }
+    }
+  }
+}

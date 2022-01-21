@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-page-title.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-page-title.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class=" centered--section ">
+  <div class="page-title color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} page-title--full-width{% endif %} empty-margin__{{ section.id }}">
+    <div class="page-title__blocks">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'heading' -%}
+          {%- if block.settings.heading != blank -%}
+            <h6 class="page-title-heading" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h6>
+          {%- endif -%}
+          {%- if block.settings.heading_2 != blank -%}
+            <div class="page-width page-width--narrow">
+              <h1 class="main-page-title page-title h0">
+                {{ block.settings.heading_2 | escape }}
+              </h1>
+            </div>
+          {%- endif -%}  
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% style %}
+.empty-margin__{{ section.id }} {
+  margin-top: {{ section.settings.section-padding-top }}px;
+  margin-bottom: {{ section.settings.section-padding-bottom }}px;
+}
+@media screen and (max-width: 750px) {
+  .empty-margin__{{ section.id }} {
+    margin-top: {{ section.settings.section-padding-top-mobile }}px;
+    margin-bottom: {{ section.settings.section-padding-bottom-mobile }}px;
+  }
+}
+{% endstyle %}
+
+
+{% schema %}
+{
+  "name": "Page title",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.rich-text.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.rich-text.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.rich-text.settings.color_scheme.options__5.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.rich-text.settings.color_scheme.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Page title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Page title",
+          "label": "Page title"
+        },
+        {
+          "type": "text",
+          "id": "heading_2",
+          "label": "Page big title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page title",
+      "blocks": [
+        {
+          "type": "heading"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
