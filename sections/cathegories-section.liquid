@@ -50,8 +50,7 @@
             <a href="{{ block.settings.collection_icon_link }}" class="collections_icon">
               <img src="{{ block.settings.collection_icon_image | img_url: '100x100' }}"
                 alt="{{ block.settings.image.alt | escape }}">
-              
-              <h4 class="h4">{{ block.settings.category_name }}</h4>
+              <h4 class="icon__title">{{ block.settings.category_name }}</h4>
             </a>
             
             {%- endcase -%}

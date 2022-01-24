@@ -1,5 +1,5 @@
 .product-slider-section {
-  margin-top: 30vh;
+  margin-top: 250px;
   margin-bottom: 0;
   padding: 0;
 }
@@ -74,7 +74,7 @@ img.product-emotion-pic {
 
 @media screen and (min-width: 950px){
     .product-slider-section {
-        margin-top: 20vh;
+        margin-top: 297px;
         margin-bottom: 0;
         padding: 0;
       }

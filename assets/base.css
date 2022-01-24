@@ -209,6 +209,7 @@ button .shopify-payment-button__button,
   box-shadow: 0 0 0 0.2rem rgb(var(--color-base-outline-button-labels));
 }
 
+
 /* .color-background-2 .button--secondary,
 .color-inverse .button--secondary,
 .color-accent-1 .button--secondary,
@@ -298,7 +299,7 @@ html.no-js .no-js-hidden {
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 20px;
 }
 
 .page-width-desktop {
@@ -482,13 +483,18 @@ h6 {
   font-weight: var(--font-heading-weight);
   letter-spacing: 0.06rem;
   color: rgb(var(--color-foreground));
-  line-height: 1.3;
+  line-height: 1;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 p {
   font-size: 1.125rem;
+}
+
+.sm_text {
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -977,6 +983,7 @@ summary::-webkit-details-marker {
 
 .title-wrapper-with-link .title {
   margin: 0;
+  text-align: center;
 }
 
 .title .link {

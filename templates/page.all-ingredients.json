@@ -1,0 +1,198 @@
+{
+  "sections": {
+    "164183725220393f6a": {
+      "type": "page-title",
+      "blocks": {
+        "1641837252e4a237e2-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "INGREDIENTS",
+            "heading_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "1641837252e4a237e2-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "16425293477c478924": {
+      "type": "all-ingredients",
+      "blocks": {
+        "e1ce87d8-d3b5-40bb-86fa-e40a55ba0196": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Cranberry",
+            "ingredient_plant": "Vaccinium macrocarpon",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "71eaf663-81df-4cad-9226-46026c5930b4": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Echinacea",
+            "ingredient_plant": "Echinacea purpurea",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "1a36d397-6562-4af4-818c-a2df9f25ac47": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Licorice root",
+            "ingredient_plant": "Glycyrrhiza glabra",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "a049f741-ad2b-41fa-a4ad-49b8302cff84": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Milk Thistle",
+            "ingredient_plant": "Silybum marianum",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "90eb1799-dbc7-4e78-83cf-b0ccfc9ad33b": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Oregano",
+            "ingredient_plant": "Origanum vulgare",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "5507798d-2084-4e80-a265-67560f519214": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Pharma GABA®",
+            "ingredient_plant": "Gamma-Aminobutyric Acid",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "1642529347ab2e65f4-0": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Quercetin",
+            "ingredient_plant": "Sophora japonica",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "419d9783-3642-4d4c-abbd-663c2ca4fc4e": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/tumeric_4751b537-76da-452a-bc26-06a9fb426d2d.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/tumeric-hover_23b32c73-8a82-4f5a-8088-9d981bc4b4b6.png",
+            "ingredient_name": "Turmeric",
+            "ingredient_plant": "Curcuma longa",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        },
+        "36be8ad8-0250-44bf-b0c4-44c1e6829ec6": {
+          "type": "ingredient_item",
+          "settings": {
+            "ingredient_name": "Wild Alaskan Salmon",
+            "ingredient_plant": "Fish",
+            "ingredient_page_link": "",
+            "health_benefit": ""
+          }
+        }
+      },
+      "block_order": [
+        "e1ce87d8-d3b5-40bb-86fa-e40a55ba0196",
+        "71eaf663-81df-4cad-9226-46026c5930b4",
+        "1a36d397-6562-4af4-818c-a2df9f25ac47",
+        "a049f741-ad2b-41fa-a4ad-49b8302cff84",
+        "90eb1799-dbc7-4e78-83cf-b0ccfc9ad33b",
+        "5507798d-2084-4e80-a265-67560f519214",
+        "1642529347ab2e65f4-0",
+        "419d9783-3642-4d4c-abbd-663c2ca4fc4e",
+        "36be8ad8-0250-44bf-b0c4-44c1e6829ec6"
+      ],
+      "settings": {
+      }
+    },
+    "1641756044aa1774d3": {
+      "type": "banner-picture",
+      "disabled": true,
+      "settings": {
+        "color_background": "#ffffff",
+        "cover_image": "shopify:\/\/shop_images\/placeholder.png",
+        "height": "adapt",
+        "layout": "image_first",
+        "vertical_line_height_mobile": 0,
+        "banner_title": "Some title here",
+        "banner_text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_type": "button--primary"
+      }
+    },
+    "1639493664eb1f8839": {
+      "type": "social",
+      "disabled": true,
+      "blocks": {
+        "1639493664db12b77e-0": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/pinterest.png",
+            "social_link": ""
+          }
+        },
+        "c2a5e118-8f53-4e19-9152-97ea2626903a": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/linkedin.png",
+            "social_link": ""
+          }
+        },
+        "40802808-45ab-4b73-ab0c-727fe65a5747": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/facebook.png",
+            "social_link": ""
+          }
+        },
+        "61689981-6a7c-41b8-b82c-018666932123": {
+          "type": "socials",
+          "settings": {
+            "socials_icon": "shopify:\/\/shop_images\/ttwitter.png",
+            "social_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1639493664db12b77e-0",
+        "c2a5e118-8f53-4e19-9152-97ea2626903a",
+        "40802808-45ab-4b73-ab0c-727fe65a5747",
+        "61689981-6a7c-41b8-b82c-018666932123"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "section-padding-top": 60,
+        "section-padding-bottom": 60,
+        "section-padding-top-mobile": 60,
+        "section-padding-bottom-mobile": 60
+      }
+    }
+  },
+  "order": [
+    "164183725220393f6a",
+    "main",
+    "16425293477c478924",
+    "1641756044aa1774d3",
+    "1639493664eb1f8839"
+  ]
+}

@@ -6,7 +6,8 @@
         "1635545051f8a75d07-0": {
           "type": "heading",
           "settings": {
-            "heading": "Our Nature"
+            "heading": "Our Nature",
+            "heading_2": ""
           }
         }
       },
@@ -226,6 +227,7 @@
       ],
       "settings": {
         "color_scheme": "background-1",
+        "color_text": "#000",
         "section-padding-top": 0,
         "section-padding-bottom": 27,
         "section-padding-top-mobile": 0,
@@ -242,7 +244,8 @@
         "show_date": false,
         "show_author": false,
         "soft_background": false,
-        "show_view_all": true
+        "show_view_all": false,
+        "read_all": "..."
       }
     }
   },

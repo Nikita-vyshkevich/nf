@@ -1,0 +1,110 @@
+{{ 'component-all-ingredients.css' | asset_url | stylesheet_tag }}
+
+
+<div class="cathegories-section {{ section.id }} color-{{ section.settings.color_scheme }}"
+  style="background-color: {{ section.settings.color}};">
+
+  <div class="page-width wrapper__content">
+      <div class="cathegories-section__content cathegories-section__content--{{ section.settings.height }}">
+        <div id="allIngredients" class="inredients_wrapper">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+
+          {%- when 'ingredient_item' -%}
+            <div class="ingredient-card">
+              <div class="ingredient-picture">
+                <img class="ingredient_default_image" src="{{ block.settings.ingredient_image | img_url: '300x300'}}" alt="{{ block.settings.ingredient_image | escape }}" 
+                >
+                <img class="ingredient_hover_image" src="{{ block.settings.ingredient_hover_image | img_url: '300x300'}}" alt="{{ block.settings.ingredient_image | escape }}">
+              </div>
+
+              <div class="ingredients--text-area">
+              <h4 class="h4 ingredient_name">
+                {{ block.settings.ingredient_name }}
+              </h4>
+              <div class="bottom-text">
+                <div class="p-sm">
+                  {%- if block.settings.ingredient_plant != blank -%}
+                  <p>
+                    {{ block.settings.ingredient_plant }}
+                  </p>
+                  {%- else -%}
+                  <p><br></p>
+                  {%- endif -%}
+                </div>
+                  <div class="more_area">
+                    <a href="{{ block.settings.ingredient_page_link }}" class="blog__read_all">
+                      Learn More <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false"
+                        role="presentation" class="icon icon-arrow" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                          fill="currentColor">
+                        </path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "All Ingredients",
+  "class": "spaced-section spaced-section--full-width",
+  "blocks": [
+    {
+      "type": "ingredient_item",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "ingredient_image",
+          "label": "Ingredien Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "ingredient_hover_image",
+          "label": "Ingredien Hover Image"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_name",
+          "label": "Ingredien Name"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_plant",
+          "label": "Ingredien Plant"
+        },
+        {
+          "type": "url",
+          "id": "ingredient_page_link",
+          "label": "Ingredient Page Link"
+        },
+        {
+          "type": "text",
+          "id": "health_benefit",
+          "label": "Health Benefit"
+        }
+      ]  
+    }
+  ],
+  "presets": [
+    {
+      "name": "All Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

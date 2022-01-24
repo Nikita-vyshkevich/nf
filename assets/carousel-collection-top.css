@@ -353,24 +353,26 @@ img.product-emotion-pic {
 
 .slide_banner_conntent {
   position: absolute;
-  width: 50%;
+  width: 54%;
   height: 100%;
   top: 0;
   left: 0;
-  padding: 100px;
+  padding-top: 200px;
+  padding-left: 100px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
+
 @media screen and (max-width: 950px) {
   .slide_banner_conntent {
     width: 100%;
     height: auto;
     padding: 20px;
+    padding-top: 170px;
     text-align: center;
     margin: auto;
-    margin-top: 170px;
   }
 
   .slide_banner_conntent .button {
@@ -380,7 +382,7 @@ img.product-emotion-pic {
 }
 
 .slide_banner_conntent .button {
-  margin-top: 50px;
+  margin-top: 20px;
   /* position: absolute;
   bottom: 0; */
 }

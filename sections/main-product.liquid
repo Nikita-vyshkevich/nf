@@ -69,25 +69,23 @@
               <div class="benefits_row">
                   <img class="benefits_icon" src="{{ block.settings.benefit_icon | img_url: image_size }}" alt="{{ image.alt | escape }}" />
 
+
                 {% if block.settings.benefit_title != blank %} 
-
-                <div class="outer"></div>
-                <div class="benefits_wrapper">
-                  <div class="benefits_popup">
-                    <div class="benefits_content-wrapper">
-                      <h5 class="benefits_content-title">{{ block.settings.benefit_title }}</h5>
-                      <p class="benefits_content-text">{{ block.settings.benefit_text | truncate: 160 }}</p>
-                      
-                      {%- if block.settings.benefit_button_link != blank -%}
-                        <a{% if block.settings.benefit_button_link != blank %} href="{{ block.settings.benefit_button_link }}"{% endif %} class="button button--secondary">Learn More</a>
-                      {%- endif -%}
+                  <div class="outer"></div>
+                  <div class="benefits_wrapper">
+                    <div class="benefits_popup">
+                      <div class="benefits_content-wrapper">
+                        <h5 class="benefits_content-title">{{ block.settings.benefit_title }}</h5>
+                        <p class="benefits_content-text">{{ block.settings.benefit_text | truncate: 160 }}</p>
+                        {%- if block.settings.benefit_button_link != blank -%}
+                          <a{% if block.settings.benefit_button_link != blank %} href="{{ block.settings.benefit_button_link }}"{% endif %} class="button button--secondary">Learn More</a>
+                        {%- endif -%}
+                      </div>
+                      <div class="benefit_image">
+                        <img class="benefit_picture" src="{{ block.settings.benefit_picture | img_url: '300x300' }}" alt="{{ image.alt | escape }}" />
+                      </div>
                     </div>
-
-                    <div class="benefit_image">
-                      <img class="benefit_picture" src="{{ block.settings.benefit_picture | img_url: '300x300' }}" alt="{{ image.alt | escape }}" />
-                    </div>
-                  </div>
-                </div> 
+                  </div> 
                 {% endif %}
               </div>
             {% endif %}

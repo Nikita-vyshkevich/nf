@@ -187,3 +187,9 @@
     padding-bottom: 40.7rem;
   }
 }
+
+.blog__view-all span {
+  font-size: 34px;
+  font-weight: 600;
+  color: #000;
+}

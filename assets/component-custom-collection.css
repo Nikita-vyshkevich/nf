@@ -6,11 +6,11 @@
 
 .custom-collection__container {
     padding-top: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 100px;
 }
 
 .view-all_button_row {
-    margin-top: 6rem;
+    margin-top: 50px;
 }
 
 .scroll-container {
@@ -20,30 +20,75 @@
     overflow-x: scroll;
     overflow-y: hidden;
     padding-top: 5px;
+    padding-bottom: 35px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scroll-padding-left: 1rem;
     -webkit-overflow-scrolling: touch;
 }
 
-@media screen and (max-width: 750px) {       
+.scrolable-collection {
+    margin-bottom: 50px;
+    margin-right: -80px;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 20px;
+    height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    
+    border-radius: 10px;
+    background: #FFE171; 
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #fff; 
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 750px) {      
+    .scrolable-collection {
+        margin-right: 0px;
+    }
+
     .scroll-container {
         flex-direction: column;
         height: 539px;
         overflow: hidden;
+        margin-left: -10px;
+        margin-right: -10px;
     }
 
     .custom-collection__container {
         padding-top: 10px;
-        padding-bottom: 20px;
+        padding-bottom: 54px;
     }
 
     .custom-collection__container .multiple-items {
-        height: 532px;
+        height: 510px;
+        overflow: hidden;
+    }
+
+    .multiple-items {
+        height: 500px;
         overflow: hidden;
     }
 }
 
-.scrolable-collection {
-    margin-bottom: 50px;
+.carousel__collection {
+    max-width: calc(100% - 120px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+}
+@media screen and (max-width: 750px) {
+    .carousel__collection {
+        max-width: 100%;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: 50px;
+    }
 }

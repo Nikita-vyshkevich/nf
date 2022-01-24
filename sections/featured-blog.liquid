@@ -40,8 +40,8 @@
             </li>
           {%- endfor -%}
         </ul>
-        {%- if posts_exceed_limit -%}
-          <div class="slider-buttons no-js-hidden{% if section.settings.post_limit < 3 %} medium-hide{% endif %}{% if section.settings.post_limit < 2 %} small-hide{% endif %}">
+        <!-- {%- if posts_exceed_limit -%}
+          <div class="slider-buttons no-js-hidden{% if section.settings.post_limit < 5 %} medium-hide{% endif %}{% if section.settings.post_limit < 2 %} small-hide{% endif %}">
             <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
             <div class="slider-counter caption">
               <span class="slider-counter--current">1</span>
@@ -51,13 +51,13 @@
             </div>
             <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
           </div>
-        {%- endif -%}
+        {%- endif -%} -->
       </slider-component>
     
       {%- if section.settings.show_view_all -%}
         <div class="blog__view-all right small-hide medium-hide">
-          <a href="{{ section.settings.blog.url }}" class="blog__read_all">
-              Read All {% render 'icon-arrow' %}
+          <span>Next:</span> <a href="{{ section.settings.blog.url }}" class="blog__read_all">
+              {{ section.settings.read_all }} {% render 'icon-arrow' %}
           </a>
         </div>
       {%- endif -%}
@@ -138,6 +138,12 @@
       "id": "show_view_all",
       "default": true,
       "label": "t:sections.featured-blog.settings.show_view_all.label"
+    },
+    {
+      "type": "text",
+      "id": "read_all",
+      "default": "...",
+      "label": "Read more button text"
     }
   ],
   "presets": [

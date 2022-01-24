@@ -106,7 +106,7 @@
     <!-- Here is blog article section start  -->
     {%- when 'featured_posts' -%}
     {%- if block.settings.article_1 != blank -%}
-    <div class="row">
+    <div class="row show-on-desktop">
       <div class="col-1_2">
 
         <div class=" mini__item mini__item--posts mini-blog-{{ block.id }}" id="block-{{ block.id }}" {{
@@ -163,13 +163,14 @@
         <!-- Here is blog article section finish  -->
       </div>
     </div>
-    <script>
+    <!-- <script>
       window.addEventListener("load", function () {
         let sectionID = '{{ section.id }}';
         let sectionWrapper = document.querySelector('.wrapper__'+ sectionID);
-        sectionWrapper.classList.add('margins-when-article');
+        console.log(sectionWrapper);
+        sectionWrapper.classList.add('margins-when-article__lined-block');
       });
-    </script>
+    </script> -->
     {% endif %}
 
 
@@ -179,51 +180,33 @@
 
   </div>
 </div>
-  <!-- <script>
-    window.addEventListener("load", function () {
-      let sectionID = '{{ section.id }}';
-      let box = document.querySelector('.rich-text-lined__text__' + sectionID);
-      let heightBox = box.clientHeight;
-      let line = document.getElementsByClassName('horizontal_line_' + sectionID)[0];
-
-      function screen_resize() {
-        var h = parseInt(window.innerHeight);
-        var w = parseInt(window.innerWidth);
-        if (w <= 950) {
-          let marginTopOnMobile = '{{ section.settings.horizontal_line_top_position_mobile }}'
-          line.style.top = Number(heightBox) / 2;
-        }
-      }
-      screen_resize()
-    });
-  </script> -->
-
 
 {% style %}
   .empty-margin__{{ section.id }} {
-  margin-top: {{ section.settings.section-padding-top }}%;
-  margin-bottom: {{ section.settings.section-padding-bottom }}%;
+    margin-top: {{ section.settings.section-padding-top }}%;
+    margin-bottom: {{ section.settings.section-padding-bottom }}%;
   }
+
   @media screen and (max-width: 750px) {
   .empty-margin__{{ section.id }} {
-  margin-top: {{ section.settings.section-padding-top-mobile }}%;
-  margin-bottom: {{ section.settings.section-padding-bottom-mobile }}%;
+    margin-top: {{ section.settings.section-padding-top-mobile }}%;
+    margin-bottom: {{ section.settings.section-padding-bottom-mobile }}%;
   }
   }
 
-  .section_wrapper__{{ section.id }} {
-    margin-top: 0;
+  .wrapper__{{ section.id }} {
+    margin-top: 0; 
     margin-bottom: 50px;
   }
 
-  @media screen and (min-width: 950px) {
-  .margins-when-article {
-    margin-bottom: 0px;
+  .margins-when-article__lined-block {
+    margin-bottom: 100px;
   }
-}
+
   @media screen and (max-width: 950px) {
-    .margins-when-article {
-      margin-bottom: 440px!Important;
+  
+    .margins-when-article__lined-block {
+      margin-bottom: 440px;
     }
   }
 {% endstyle %}
