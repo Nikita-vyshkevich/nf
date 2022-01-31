@@ -1,5 +1,5 @@
 .hero-section {
-  margin-top: 39vh;
+  margin-top: 25vh;
   margin-bottom: 0;
   padding: 0;
 }
@@ -413,7 +413,7 @@
   }
 
   .centered_row > .button {
-    margin: 20px;
+    margin: 8px 20px;
     width: 350px;
   }
 }
@@ -445,6 +445,7 @@
   height: 50vh;
   margin-top: -25vh;
   z-index: 2;
+  position: relative;
 }
 
 .media_content_container img {
@@ -472,4 +473,49 @@
     height: 76vh;
     margin-top: -38vh;
   }
+}
+
+.hero_section_content {
+  position: absolute;
+  height: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (min-width: 950px) {
+  .hero_section_content {
+    max-width: 600px;
+    left: 50%;
+    margin-left: -300px;
+  }
+}
+
+.hero_section_content p,
+.hero_section_content h1,
+.hero_section_content h2,
+.hero_section_content h3,
+.hero_section_content h4,
+.hero_section_content h5
+{
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero_section_content > h2 {
+  color: white;
+  text-shadow: 2px 2px 13px #000000a8;
+}
+
+.hero_section_content .button {
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }

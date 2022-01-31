@@ -531,7 +531,20 @@
       </a>
     </div>
   </header>
-</{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
+</div>
+<hr class="hr_header_left" 
+style="height: 1px;
+width: calc(50% - 80px);
+position: absolute;
+top: -27px;"
+>
+<hr class="hr_header_right" style="
+  height: 1px;
+  width: calc(50% - 80px);
+  position: absolute;
+  top: -27px;
+  right: 0;"
+>
 
 {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
 

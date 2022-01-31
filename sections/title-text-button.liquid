@@ -8,14 +8,14 @@
 <noscript>{{ 'title-text-button.css' | asset_url | stylesheet_tag }}</noscript>
 
 <div class="{% unless section.settings.full_width %}page-width{% endunless %} wrapper_partner_block centered--section">
-  <div class="rich-text color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width{% endif %}">
+  <div class="rich-text color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width{% endif %} margin_citation_the-planet">
     <div class="rich-text__blocks">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
             <h2 class="title__partner_block {{ block.settings.heading_size }} h1" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
           {%- when 'text' -%}
-            <div class="rich-text__text rte text__partner_block " {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+            <div class="rich-text__text rte text__partner_block citation_the_planet_margin" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
           {%- when 'button' -%}
             <a{% if block.settings.button_link == blank %} aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}" {{ block.shopify_attributes }}>
               {{ block.settings.button_label | escape }}

@@ -18,7 +18,7 @@ opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
 
       {%- when 'heading' -%}
       <div class="rich-text__text text__partner_block text__components page-width rich-text__blocks" {{ block.shopify_attributes }}>
-          <h2 class="title__components {{ block.settings.heading_size }} h1" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
+          <h0 class="title__components {{ block.settings.heading_size }} h0" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h0>
       </div>
 
       {%- when 'text' -%}

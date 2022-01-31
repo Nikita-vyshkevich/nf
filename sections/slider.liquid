@@ -24,12 +24,13 @@
 	</script>
   
 
-<div id="slider" style="margin-left: auto; margin-right: auto; margin-bottom: 50px; margin-top: -135px; z-index: 0;">
+  <div id="slider" style="margin-left: auto; margin-right: auto; margin-top: -135px; z-index: 0; width: 100vw; height: 100vh;  background-color: #8c8c8c;">
   {%- for block in section.blocks -%}
   {% case block.type %}
 
   {%- when 'slide' -%}
-    <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:1; timeshift:-500; deeplink:home; kenburnszoom:in; kenburnsrotate:0; kenburnsscale:1.1; parallaxevent:scroll; parallaxdurationmove:500;">
+
+    <div class="ls-slide" data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:1; timeshift:-500; deeplink:home;">
         <img
           srcset="{%- if block.settings.image_1.width >= 375 -%}{{ block.settings.image_1 | img_url: '375x' }} 375w,{%- endif -%}
           {%- if block.settings.image_1.width >= 750 -%}{{ block.settings.image_1 | img_url: '750x' }} 750w,{%- endif -%}
@@ -50,14 +51,34 @@
           allowfullscreen
           style="object-fit: cover"
         >
-          <div style="width:100%; height:100%; background:rgba(11, 15, 41, 0.49); top:50%; left:50%;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:800; parallaxlevel:0; position:fixed;">
-          <h1 style="font-size: 84px; text-align:center; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); width:80%; color:#ffffff; top:340px; margin-left: 15px; margin-right: 15px; left:50%; white-space:normal;" class="h1 ls-l" data-ls="offsetyin:40; delayin:250; easingin:easeOutQuint; filterin:blur(10px); offsetyout:-200; durationout:800;">{{ block.settings.heading }}</h1>
-          <p style="font-weight:600; text-align:center;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);width:70%; color:#ffffff; top:550px; left:50%; white-space:normal; margin-left: 15px; margin-right: 15px;" class="ls-l" data-ls="offsetyin:40; delayin:260; easingin:easeOutQuint; filterin:blur(10px);  offsetyout:-200; durationout:1000;">{{ block.settings.text }}</p>
+          <div id="wrapper__slider" style="width:100%; height:100%; background:rgba(11, 15, 41, 0.49); top:50%; left:50%; padding-top: 300px;" class="ls-l" data-ls="easingin:easeOutQuint; durationout:800; parallaxlevel:0; position:fixed;">
+          <h1 class="home_slide_title">{{ block.settings.heading }}</h1>
+          <p class="home_slide_text">{{ block.settings.text }}</p>
           <a href="{{ block.settings.button_link_1 }}"
-          style="line-height: 3.55; width: 300px; text-align:center; top:680px; left:50%; white-space:normal;  margin-left: 15px; margin-right: 15px;" class="ls-l button button--secondary" data-ls="offsetyin:40; easingin:easeOutQuint; delayin:270; filterin:blur; offsetyout:-200; filterin:blur(10px); durationout:1100;">{{ block.settings.button_label_1 }}</a>
+          style="line-height: 3.55; width: 300px; text-align:center; white-space:normal; margin: 29px auto; display: flex; align-self: center;" class="button button--secondary">{{ block.settings.button_label_1 }}</a>
 
         </div>
     </div>
+
+  
+    <style>
+      .home_slide_title {
+        font-size: 84px; text-align:center; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); color:#ffffff; white-space:normal; text-align: center; margin-top: 210px;
+      }
+      .home_slide_text {
+        font-weight:600; text-align:center; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); color:#ffffff; white-space:normal; width: 594px; margin: 24px auto;
+      }
+
+      @media screen and (max-width: 750px) {
+        .home_slide_title {
+          margin-top: 60px;
+          font-size: 2.5rem;
+        }
+        .home_slide_text {
+          width: 100%;
+        }
+      }
+    </style>
 
   {%- endcase -%}
   {%- endfor -%}

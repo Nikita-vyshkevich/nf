@@ -85,7 +85,10 @@
       {%- endif -%}
 
       {% comment %} TODO: metafield {% endcomment %}
-      <span class="caption-large light">{{ block.settings.description | escape }}</span>
+      <span class="caption-large light">
+        <!-- {{ block.settings.description | escape }} -->
+        Test
+      </span>
 
         {% liquid
           assign rating_decimal = 0 

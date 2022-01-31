@@ -96,3 +96,24 @@
   margin-top: 3rem;
 }
 
+/* INGREDIENT PAGE */
+.row__col {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ingredient_section_picture {
+  width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 750px) {
+  .ingredient_section_picture {
+    width: calc(100% + 30px);
+  }
+}
+
+.ingredient_section_picture img {
+  width: 100%;
+  height: auto;
+}

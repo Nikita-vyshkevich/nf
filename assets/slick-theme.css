@@ -40,13 +40,23 @@
     border: none;
     outline: none;
     background: transparent;
+    /* filter: drop-shadow(0 0 0 ); */
 }
+.slick-prev {
+    margin-right: 10px;
+    padding-right: 10px;
+}
+.slick-next {
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus
 {
-    filter: drop-shadow(4px 4px 6px rgb(66, 66, 66));
+    /* filter: drop-shadow(2px 2px 2px rgb(66, 66, 66)); */
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -132,7 +142,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -65px;
+    bottom: -65 px;
 
     display: block;
 

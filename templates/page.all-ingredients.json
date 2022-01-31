@@ -29,6 +29,8 @@
         "e1ce87d8-d3b5-40bb-86fa-e40a55ba0196": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_Cranberry_f7550681-cc95-45b0-9564-76537913b8f4.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_Cranberry_f7550681-cc95-45b0-9564-76537913b8f4.png",
             "ingredient_name": "Cranberry",
             "ingredient_plant": "Vaccinium macrocarpon",
             "ingredient_page_link": "",
@@ -38,6 +40,8 @@
         "71eaf663-81df-4cad-9226-46026c5930b4": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_Echinacea_917ac7fc-a217-47b8-8adc-e18ef4c6ebb7.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_Echinacea_917ac7fc-a217-47b8-8adc-e18ef4c6ebb7.png",
             "ingredient_name": "Echinacea",
             "ingredient_plant": "Echinacea purpurea",
             "ingredient_page_link": "",
@@ -47,6 +51,8 @@
         "1a36d397-6562-4af4-818c-a2df9f25ac47": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_LicoriceRoot_9b8fd4ae-e20d-4087-8693-3684288828c8.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_LicoriceRoot_9b8fd4ae-e20d-4087-8693-3684288828c8.png",
             "ingredient_name": "Licorice root",
             "ingredient_plant": "Glycyrrhiza glabra",
             "ingredient_page_link": "",
@@ -56,6 +62,8 @@
         "a049f741-ad2b-41fa-a4ad-49b8302cff84": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_MilkThistle_7e5d8b12-5f76-45b9-9045-294ac6f1f71d.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_MilkThistle_7e5d8b12-5f76-45b9-9045-294ac6f1f71d.png",
             "ingredient_name": "Milk Thistle",
             "ingredient_plant": "Silybum marianum",
             "ingredient_page_link": "",
@@ -65,6 +73,8 @@
         "90eb1799-dbc7-4e78-83cf-b0ccfc9ad33b": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_Oregano_cb8d85a9-2d6b-4b97-9090-ef85ffa249fd.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_Oregano_cb8d85a9-2d6b-4b97-9090-ef85ffa249fd.png",
             "ingredient_name": "Oregano",
             "ingredient_plant": "Origanum vulgare",
             "ingredient_page_link": "",
@@ -74,6 +84,8 @@
         "5507798d-2084-4e80-a265-67560f519214": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_PharmaGABA_06fda5f3-e7e4-4a95-962c-e395311705a8.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_PharmaGABA_06fda5f3-e7e4-4a95-962c-e395311705a8.png",
             "ingredient_name": "Pharma GABA®",
             "ingredient_plant": "Gamma-Aminobutyric Acid",
             "ingredient_page_link": "",
@@ -83,6 +95,8 @@
         "1642529347ab2e65f4-0": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_Quercetin_74ec44fa-ca8f-407c-9f35-d6ad0e68f912.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_Quercetin_74ec44fa-ca8f-407c-9f35-d6ad0e68f912.png",
             "ingredient_name": "Quercetin",
             "ingredient_plant": "Sophora japonica",
             "ingredient_page_link": "",
@@ -103,6 +117,8 @@
         "36be8ad8-0250-44bf-b0c4-44c1e6829ec6": {
           "type": "ingredient_item",
           "settings": {
+            "ingredient_image": "shopify:\/\/shop_images\/Bowl_WildAlskanSalmon.png",
+            "ingredient_hover_image": "shopify:\/\/shop_images\/Bowl_WildAlskanSalmon.png",
             "ingredient_name": "Wild Alaskan Salmon",
             "ingredient_plant": "Fish",
             "ingredient_page_link": "",

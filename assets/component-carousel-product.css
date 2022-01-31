@@ -74,7 +74,7 @@ img.product-emotion-pic {
 
 @media screen and (min-width: 950px){
     .product-slider-section {
-        margin-top: 297px;
+        margin-top: 265px;
         margin-bottom: 0;
         padding: 0;
       }
@@ -480,12 +480,10 @@ img.product-emotion-pic {
   }
 }
 
-
 /* NEW STYLES FOR CONTAINER  */
 .section_wrapper {
   margin-top: 250px;
 }
-
 
 .slide_content_wrapper {
   width: 100%;
@@ -495,7 +493,6 @@ img.product-emotion-pic {
   -webkit-filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.596));
   filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.596));
 }
-
 
 @media screen and (max-width: 950px) {
   .information__text {

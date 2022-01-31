@@ -12,11 +12,19 @@
 
 @media only screen and (min-width: 1440px) {
   .title__partner_block {
-    
     font-family: "Gellix-SemiBold";
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
   }
 
   .text__partner_block {
     font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .title__partner_block {
+    width: auto;
   }
 }

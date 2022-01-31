@@ -12,21 +12,10 @@
             "button_label_1": "Dig Deeper",
             "button_link_1": "shopify:\/\/pages\/accounts"
           }
-        },
-        "128850a3-644d-45a5-ac86-d82ceb5bf380": {
-          "type": "slide",
-          "settings": {
-            "image_1": "shopify:\/\/shop_images\/Bitmap11.jpg",
-            "heading": "",
-            "text": "",
-            "button_label_1": "Dig Deeper",
-            "button_link_1": "shopify:\/\/pages\/customer-service"
-          }
         }
       },
       "block_order": [
-        "1640640103e1682ddf-0",
-        "128850a3-644d-45a5-ac86-d82ceb5bf380"
+        "1640640103e1682ddf-0"
       ],
       "settings": {
       }
@@ -104,10 +93,10 @@
           "settings": {
             "button_label": "Shop by Health Benefit",
             "button_link": "shopify:\/\/collections\/size-1-kg-powder",
-            "button_style": "button--secondary",
+            "button_style": "button--primary",
             "button_2_label": "Shop by Ingredient",
             "button_2_link": "shopify:\/\/collections\/size-100-ml-tincture",
-            "button_2_style": "button--primary"
+            "button_2_style": "button--tertiary"
           }
         },
         "a545194c-2f47-4034-903a-781221d848e2": {
@@ -118,28 +107,12 @@
             "category_name": "Category"
           }
         },
-        "21fdcb06-bcc7-4eba-8307-3f6628c263aa": {
+        "ad26fd08-a41b-4dbc-aea5-bdca72160960": {
           "type": "collections_icons",
           "settings": {
-            "collection_icon_image": "shopify:\/\/shop_images\/5.png",
+            "collection_icon_image": "shopify:\/\/shop_images\/Group_2_Copy.png",
             "collection_icon_link": "",
-            "category_name": "Category"
-          }
-        },
-        "3194ea79-5a07-44c1-a1ad-4e7e50fc3e2c": {
-          "type": "collections_icons",
-          "settings": {
-            "collection_icon_image": "shopify:\/\/shop_images\/6.png",
-            "collection_icon_link": "",
-            "category_name": "Category"
-          }
-        },
-        "a712b105-1a8f-4ef3-8271-acec0f2661b1": {
-          "type": "collections_icons",
-          "settings": {
-            "collection_icon_image": "shopify:\/\/shop_images\/Group_19_Copy_4_0ec4f5f4-f2dd-4c4b-985f-326cc48e7223.png",
-            "collection_icon_link": "",
-            "category_name": "Category"
+            "category_name": "Cognitive"
           }
         },
         "937cab19-758f-43ae-b596-9fbeb53e2101": {
@@ -147,7 +120,7 @@
           "settings": {
             "collection_icon_image": "shopify:\/\/shop_images\/Group_3_33f845fe-3403-446e-9c6a-4b82bf766d3b.png",
             "collection_icon_link": "",
-            "category_name": "Category"
+            "category_name": "Digestion"
           }
         },
         "a8a445b0-bc11-40d8-810c-de1f6e6c4d68": {
@@ -155,15 +128,31 @@
           "settings": {
             "collection_icon_image": "shopify:\/\/shop_images\/4.png",
             "collection_icon_link": "",
-            "category_name": "Category"
+            "category_name": "Heart"
           }
         },
-        "ad26fd08-a41b-4dbc-aea5-bdca72160960": {
+        "a712b105-1a8f-4ef3-8271-acec0f2661b1": {
           "type": "collections_icons",
           "settings": {
-            "collection_icon_image": "shopify:\/\/shop_images\/Group_2_Copy.png",
+            "collection_icon_image": "shopify:\/\/shop_images\/Group_19_Copy_4_0ec4f5f4-f2dd-4c4b-985f-326cc48e7223.png",
             "collection_icon_link": "",
-            "category_name": "Category"
+            "category_name": "Eye"
+          }
+        },
+        "21fdcb06-bcc7-4eba-8307-3f6628c263aa": {
+          "type": "collections_icons",
+          "settings": {
+            "collection_icon_image": "shopify:\/\/shop_images\/5.png",
+            "collection_icon_link": "",
+            "category_name": "Stress & Sleep"
+          }
+        },
+        "3194ea79-5a07-44c1-a1ad-4e7e50fc3e2c": {
+          "type": "collections_icons",
+          "settings": {
+            "collection_icon_image": "shopify:\/\/shop_images\/6.png",
+            "collection_icon_link": "",
+            "category_name": "Weight & Fitness"
           }
         }
       },
@@ -171,12 +160,12 @@
         "163968699921c75ffc-1",
         "163968699921c75ffc-2",
         "a545194c-2f47-4034-903a-781221d848e2",
-        "21fdcb06-bcc7-4eba-8307-3f6628c263aa",
-        "3194ea79-5a07-44c1-a1ad-4e7e50fc3e2c",
-        "a712b105-1a8f-4ef3-8271-acec0f2661b1",
+        "ad26fd08-a41b-4dbc-aea5-bdca72160960",
         "937cab19-758f-43ae-b596-9fbeb53e2101",
         "a8a445b0-bc11-40d8-810c-de1f6e6c4d68",
-        "ad26fd08-a41b-4dbc-aea5-bdca72160960"
+        "a712b105-1a8f-4ef3-8271-acec0f2661b1",
+        "21fdcb06-bcc7-4eba-8307-3f6628c263aa",
+        "3194ea79-5a07-44c1-a1ad-4e7e50fc3e2c"
       ],
       "settings": {
         "color": "#ffffff"
@@ -283,13 +272,22 @@
         "color": "#007b38",
         "image": "shopify:\/\/shop_images\/Bitmap11.jpg",
         "height": "adapt",
-        "layout": "image_first"
+        "layout": "image_first",
+        "content_top_position": 31,
+        "content_top_position_mobile": 20,
+        "banner_title": "",
+        "banner_text": "Our premier demonstration of what regenerative agriculture can do.",
+        "button_label": "Learn More",
+        "button_link": "#",
+        "button_type": "button--secondary"
       }
     },
     "16402980832a97938d": {
       "type": "carousel-products",
       "settings": {
         "background_color": "#007b38",
+        "section-padding-top": 0,
+        "section-padding-top-mobile": 0,
         "title": "",
         "collection": "products-containing-turmeric",
         "products_to_show": 10,
@@ -344,6 +342,20 @@
         "picture_text": "Why organic farming is not enough, and what we’re doing about it."
       }
     },
+    "16390430182bedcb68": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "FEATURED ARTICLES",
+        "blog": "test-category",
+        "post_limit": 3,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "soft_background": false,
+        "show_view_all": false,
+        "read_all": "..."
+      }
+    },
     "16390431185825f3ba": {
       "type": "citation",
       "blocks": {
@@ -380,20 +392,6 @@
         "section-padding-top-mobile": 0,
         "section-padding-bottom-mobile": 0
       }
-    },
-    "16390430182bedcb68": {
-      "type": "featured-blog",
-      "settings": {
-        "heading": "FEATURED ARTICLES",
-        "blog": "test-category",
-        "post_limit": 3,
-        "show_image": true,
-        "show_date": false,
-        "show_author": false,
-        "soft_background": false,
-        "show_view_all": false,
-        "read_all": "..."
-      }
     }
   },
   "order": [
@@ -407,7 +405,7 @@
     "16394192985477bf00",
     "16402980832a97938d",
     "163904326158eb439c",
-    "16390431185825f3ba",
-    "16390430182bedcb68"
+    "16390430182bedcb68",
+    "16390431185825f3ba"
   ]
 }

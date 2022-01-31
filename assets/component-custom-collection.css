@@ -28,8 +28,8 @@
 }
 
 .scrolable-collection {
-    margin-bottom: 50px;
-    margin-right: -80px;
+    margin-bottom: 110px;
+    margin-right: -100px;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -56,7 +56,7 @@
 
     .scroll-container {
         flex-direction: column;
-        height: 539px;
+        height: 525px;
         overflow: hidden;
         margin-left: -10px;
         margin-right: -10px;
@@ -64,11 +64,11 @@
 
     .custom-collection__container {
         padding-top: 10px;
-        padding-bottom: 54px;
+        padding-bottom: 70px;
     }
 
     .custom-collection__container .multiple-items {
-        height: 510px;
+        height: 565px;
         overflow: hidden;
     }
 
@@ -86,7 +86,7 @@
 }
 @media screen and (max-width: 750px) {
     .carousel__collection {
-        max-width: 100%;
+        max-width: calc(100% + 80px);
         margin-left: -10px;
         margin-right: -10px;
         margin-bottom: 50px;

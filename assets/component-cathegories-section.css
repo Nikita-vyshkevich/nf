@@ -404,6 +404,7 @@
 
 .centered_row > .button {
   margin: 20px auto;
+  padding: 5px;
 }
 
 .category_row {
@@ -439,7 +440,7 @@
 
   .centered_row > .button {
     margin: 20px;
-    width: 350px;
+    max-width: 271px;
   }
 
   .category_row {
