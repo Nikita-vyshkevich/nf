@@ -38,6 +38,13 @@
 }
 
 @media screen and (min-width: 750px) {
+  .rich-text.color-background-1.gradient.rich-text--full-width.stress-relax_margin {
+    margin-top: -20px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
   .rich-text:not(.rich-text--full-width),
   .rich-text--full-width.color-background-1 {
     margin-top: calc(5rem + var(--page-width-margin));

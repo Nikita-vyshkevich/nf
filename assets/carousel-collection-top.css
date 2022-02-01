@@ -1,5 +1,5 @@
 .collection-slider-section {
-  margin-top: -135px;
+  margin-top: -70px;
 }
 
 .product-slider-section {
@@ -329,7 +329,7 @@ img.product-emotion-pic {
 @media screen and (min-width: 950px) {
   .slide_content_inner {
     width: 100%;
-    height: 50vw;
+    height: 53vw;
   }
 
   .slide_content_inner img {
